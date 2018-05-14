@@ -1,0 +1,39 @@
+{#params}
+{?primitive}
+  get {name}() {
+    return this[_values].{name};
+  }
+
+  set {name}(value) {
+    return this[_values].{name} = value;
+  }
+{:else}
+  {?array}
+    get {name}() {
+      if (!this[_values].{name}) {
+        this[_values].{name} = ArrayProxy({type});
+      }
+      return this[_values].{name};
+    }
+
+    set {name}(value) {
+      this[_values].{name} = ArrayProxy({type});
+      value.forEach(entry => this[_values].{name}.push(entry));
+    }
+  {:else}
+    get {name}() {
+      if (!this[_values].{name}) {
+        const klass = require('./{type}');
+        return this[_values].{name} = new klass();
+      }
+      return this[_values].{name};
+    }
+
+    set {name}(value) {
+      const klass = require('./{type}');
+      return this[_values].{name} = new klass(value);
+    }
+  {/array}
+
+{/primitive}
+{/params}

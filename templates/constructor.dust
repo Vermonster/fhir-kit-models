@@ -1,0 +1,13 @@
+  constructor(values = {}) {
+    {?superClass}
+    super();
+    {/superClass}
+    this[_values] = {};
+    if (values instanceof {className}{?superClass} || values instanceof {superClass}{/superClass}) {
+      for (const [key, value] of values) {
+        this[key] = value;
+      }
+    } else {
+      Object.entries(values).forEach(([key, value]) => this[key] = value);
+    }
+  }

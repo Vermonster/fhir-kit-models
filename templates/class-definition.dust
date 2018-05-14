@@ -1,0 +1,5 @@
+{?superClass}
+class {className} extends {superClass} {
+{:else}
+class {className} {
+{/superClass}

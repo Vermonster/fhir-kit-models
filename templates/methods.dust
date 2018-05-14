@@ -1,0 +1,18 @@
+{^superClass}
+  * [Symbol.iterator]() {
+    const presentEntries = Object.entries(this[_values])
+          .filter(([_key, value]) => isPresent(value));
+    for (const entry of presentEntries) {
+      yield entry;
+    }
+  }
+
+  empty() {
+    for (const [_key, value] of Object.entries(this[_values])) {
+      if (isPresent(value)) {
+        return false;
+      }
+    }
+    return true;
+  }
+{/superClass}

@@ -1,0 +1,6 @@
+const ArrayProxy = require('./ArrayProxy');
+const { isPresent, _values } = require('./helpers');
+{?superClass}
+
+const {superClass} = require('./{superClass}');
+{/superClass}

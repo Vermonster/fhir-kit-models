@@ -4,3 +4,6 @@ module.exports.isPresent = value => {
   }
   return !!value;
 };
+
+module.exports._values = Symbol.for('values');
+module.exports._structure = Symbol.for('structure');
