@@ -1,7 +1,7 @@
-module.exports = (type, props) => {
+module.exports = (type, value) => {
   if (type[0] < 'A' || type[0] > 'Z') {
-    return;
+    return value;
   }
   const klass = require(`./${type}`);
-  return new klass(props);
+  return new klass(value);
 };

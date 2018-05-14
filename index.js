@@ -1,5 +1,6 @@
 const Element = require('./Element');
 const BackboneElement = require('./BackboneElement');
+const { isPresent } = require('./helpers');
 
 const element = new Element();
 const belement = new BackboneElement;

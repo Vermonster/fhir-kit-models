@@ -1,6 +1,10 @@
-const Element = require('./Element');
-const defaultValue = require('./default-value');
 const ArrayProxy = require('./ArrayProxy');
+const { isPresent } = require('./helpers');
+
+const Element = require('./Element');
+
+const _values = Symbol.for('values');
+const _structure = Symbol.for('structure');
 
 const structure = {
   properties: {
@@ -12,11 +16,6 @@ const structure = {
     },
   }
 };
-
-const _values = Symbol.for('values');
-const _structure = Symbol.for('structure');
-
-const notEmpty = value => value && value.empty && !value.empty();
 
 class BackboneElement extends Element {
   constructor(values = {}) {
@@ -33,19 +32,6 @@ class BackboneElement extends Element {
     }
   }
 
-  * [Symbol.iterator]() {
-    const presentEntries = Object.entries(this[_values])
-      .filter(([_key, value]) => {
-        if (notEmpty(value)) {
-          return false;
-        }
-        return true;
-      });
-    for (const entry of presentEntries) {
-      yield entry;
-    }
-  }
-
   get modifierExtension() {
     if (!this[_values].modifierExtension) {
       this[_values].modifierExtension = ArrayProxy(this[_structure].properties.modifierExtension.items);
@@ -56,15 +42,6 @@ class BackboneElement extends Element {
   set modifierExtension(value) {
     this[_values].modifierExtension = ArrayProxy(this[_structure].properties.modifierExtension.items);
     value.forEach(entry => this[_values].modifierExtension.push(entry));
-  }
-
-  empty() {
-    for (const [_key, value] of Object.entries(this[_values])) {
-      if (notEmpty(value)) {
-        return false;
-      }
-    }
-    return true;
   }
 };
 

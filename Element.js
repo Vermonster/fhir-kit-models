@@ -1,5 +1,5 @@
-const defaultValue = require('./default-value');
 const ArrayProxy = require('./ArrayProxy');
+const { isPresent } = require('./helpers');
 
 const _values = Symbol.for('values');
 const _structure = Symbol.for('structure');
@@ -25,8 +25,6 @@ const structure = {
   }
 };
 
-const notEmpty = value => value && value.empty && !value.empty();
-
 class Element {
   constructor(values = {}) {
     this[_structure] = Element[_structure];
@@ -37,19 +35,6 @@ class Element {
       }
     } else {
       Object.entries(values).forEach(([key, value]) => this[key] = value);
-    }
-  }
-
-  * [Symbol.iterator]() {
-    const presentEntries = Object.entries(this[_values])
-      .filter(([_key, value]) => {
-        if (notEmpty(value)) {
-          return false;
-        }
-        return !!value;
-      });
-    for (const entry of presentEntries) {
-      yield entry;
     }
   }
 
@@ -86,9 +71,17 @@ class Element {
     value.forEach(entry => this[_values].extension.push(entry));
   }
 
+  * [Symbol.iterator]() {
+    const presentEntries = Object.entries(this[_values])
+          .filter(([_key, value]) => isPresent(value));
+    for (const entry of presentEntries) {
+      yield entry;
+    }
+  }
+
   empty() {
     for (const [_key, value] of Object.entries(this[_values])) {
-      if (notEmpty(value)) {
+      if (isPresent(value)) {
         return false;
       }
     }
