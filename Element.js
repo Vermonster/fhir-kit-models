@@ -1,6 +1,9 @@
 const defaultValue = require('./default-value');
 const ArrayProxy = require('./ArrayProxy');
 
+const _values = Symbol.for('values');
+const _structure = Symbol.for('structure');
+
 const structure = {
   properties: {
     id: {
@@ -22,10 +25,12 @@ const structure = {
   }
 };
 
+const notEmpty = value => value && value.empty && !value.empty();
+
 class Element {
   constructor(values = {}) {
-    this.structure = Element.structure;
-    this.values = {};
+    this[_structure] = Element[_structure];
+    this[_values] = {};
     if (values instanceof Element) {
       for (const [key, value] of values) {
         this[key] = value;
@@ -36,9 +41,9 @@ class Element {
   }
 
   * [Symbol.iterator]() {
-    const presentEntries = Object.entries(this.values)
+    const presentEntries = Object.entries(this[_values])
       .filter(([_key, value]) => {
-        if (value && value.empty && !value.empty()) {
+        if (notEmpty(value)) {
           return false;
         }
         return !!value;
@@ -49,41 +54,41 @@ class Element {
   }
 
   get id() {
-    return this.values.id;
+    return this[_values].id;
   }
 
   set id(value) {
-    return this.values.id = value;
+    return this[_values].id = value;
   }
 
   get _id() {
-    if (!this.values._id) {
-      const klass = require(`./${this.structure.properties._id.type}`);
-      return this.values._id = new klass();
+    if (!this[_values]._id) {
+      const klass = require(`./${this[_structure].properties._id.type}`);
+      return this[_values]._id = new klass();
     }
-    return this.values._id;
+    return this[_values]._id;
   }
 
   set _id(value) {
-    const klass = require(`./${this.structure.properties._id.type}`);
-    return this.values._id = new klass(value);
+    const klass = require(`./${this[_structure].properties._id.type}`);
+    return this[_values]._id = new klass(value);
   }
 
   get extension() {
-    if (!this.values.extension) {
-      this.values.extension = ArrayProxy(this.structure.properties.extension.items);
+    if (!this[_values].extension) {
+      this[_values].extension = ArrayProxy(this[_structure].properties.extension.items);
     }
-    return this.values.extension;
+    return this[_values].extension;
   }
 
   set extension(value) {
-    this.values.extension = ArrayProxy(this.structure.properties.extension.items);
-    value.forEach(entry => this.values.extension.push(entry));
+    this[_values].extension = ArrayProxy(this[_structure].properties.extension.items);
+    value.forEach(entry => this[_values].extension.push(entry));
   }
 
   empty() {
-    for (const [_key, value] of Object.entries(this.values)) {
-      if (value && value.empty && !value.empty()) {
+    for (const [_key, value] of Object.entries(this[_values])) {
+      if (notEmpty(value)) {
         return false;
       }
     }
@@ -91,6 +96,6 @@ class Element {
   }
 };
 
-Element.structure = structure;
+Element[_structure] = structure;
 
 module.exports = Element;

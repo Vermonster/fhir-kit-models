@@ -13,12 +13,17 @@ const structure = {
   }
 };
 
+const _values = Symbol.for('values');
+const _structure = Symbol.for('structure');
+
+const notEmpty = value => value && value.empty && !value.empty();
+
 class BackboneElement extends Element {
   constructor(values = {}) {
     super();
-    const properties = Object.assign({}, Element.structure.properties, BackboneElement.structure.properties);
-    this.structure = Object.assign({}, Element.structure, BackboneElement.structure, { properties });
-    this.values = {};
+    const properties = Object.assign({}, Element[_structure].properties, BackboneElement[_structure].properties);
+    this[_structure] = Object.assign({}, Element[_structure], BackboneElement[_structure], { properties });
+    this[_values] = {};
     if (values instanceof Element || values instanceof BackboneElement) {
       for (const [key, value] of values) {
         this[key] = value;
@@ -29,12 +34,12 @@ class BackboneElement extends Element {
   }
 
   * [Symbol.iterator]() {
-    const presentEntries = Object.entries(this.values)
+    const presentEntries = Object.entries(this[_values])
       .filter(([_key, value]) => {
-        if (value && value.empty && !value.empty()) {
+        if (notEmpty(value)) {
           return false;
         }
-        return !!value;
+        return true;
       });
     for (const entry of presentEntries) {
       yield entry;
@@ -42,20 +47,20 @@ class BackboneElement extends Element {
   }
 
   get modifierExtension() {
-    if (!this.values.modifierExtension) {
-      this.values.modifierExtension = ArrayProxy(this.structure.properties.modifierExtension.items);
+    if (!this[_values].modifierExtension) {
+      this[_values].modifierExtension = ArrayProxy(this[_structure].properties.modifierExtension.items);
     }
-    return this.values.modifierExtension;
+    return this[_values].modifierExtension;
   }
 
   set modifierExtension(value) {
-    this.values.modifierExtension = ArrayProxy(this.structure.properties.modifierExtension.items);
-    value.forEach(entry => this.values.modifierExtension.push(entry));
+    this[_values].modifierExtension = ArrayProxy(this[_structure].properties.modifierExtension.items);
+    value.forEach(entry => this[_values].modifierExtension.push(entry));
   }
 
   empty() {
-    for (const [_key, value] of Object.entries(this.values)) {
-      if (value && value.empty && !value.empty()) {
+    for (const [_key, value] of Object.entries(this[_values])) {
+      if (notEmpty(value)) {
         return false;
       }
     }
@@ -63,6 +68,6 @@ class BackboneElement extends Element {
   }
 };
 
-BackboneElement.structure = structure;
+BackboneElement[_structure] = structure;
 
 module.exports = BackboneElement;
