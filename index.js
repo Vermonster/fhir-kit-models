@@ -1,8 +1,8 @@
 const Element = require('./Element');
+const BackboneElement = require('./BackboneElement');
 
 const element = new Element();
-
-console.log('before debugger');
+const belement = new BackboneElement;
 
 element.id = 1;
 console.log(element.id);
@@ -12,5 +12,3 @@ element.extension = [{id: 'extension0'}];
 console.log(element.extension);
 
 debugger;
-
-console.log('after debugger');

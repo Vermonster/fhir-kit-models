@@ -22,16 +22,29 @@ const structure = {
   }
 };
 
-module.exports = class Element {
+class Element {
   constructor(values = {}) {
-    this.structure = structure;
+    this.structure = Element.structure;
     this.values = {};
-    Object.entries(values).forEach(property => this[property[0]] = property[1]);
+    if (values instanceof Element) {
+      for (const [key, value] of values) {
+        this[key] = value;
+      }
+    } else {
+      Object.entries(values).forEach(([key, value]) => this[key] = value);
+    }
   }
 
   * [Symbol.iterator]() {
-    for (const value of this.values) {
-      yield value;
+    const presentEntries = Object.entries(this.values)
+      .filter(([_key, value]) => {
+        if (value && value.empty && !value.empty()) {
+          return false;
+        }
+        return !!value;
+      });
+    for (const entry of presentEntries) {
+      yield entry;
     }
   }
 
@@ -44,6 +57,10 @@ module.exports = class Element {
   }
 
   get _id() {
+    if (!this.values._id) {
+      const klass = require(`./${this.structure.properties._id.type}`);
+      return this.values._id = new klass();
+    }
     return this.values._id;
   }
 
@@ -63,4 +80,17 @@ module.exports = class Element {
     this.values.extension = ArrayProxy(this.structure.properties.extension.items);
     value.forEach(entry => this.values.extension.push(entry));
   }
+
+  empty() {
+    for (const [_key, value] of Object.entries(this.values)) {
+      if (value && value.empty && !value.empty()) {
+        return false;
+      }
+    }
+    return true;
+  }
 };
+
+Element.structure = structure;
+
+module.exports = Element;
