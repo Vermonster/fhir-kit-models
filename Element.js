@@ -62,6 +62,20 @@ class Element {
     }
     return true;
   }
+
+  toObject() {
+    const object = {};
+    for (const [key, value] of Object.entries(this[_values])) {
+      if (isPresent(value)) {
+        if (value.toObject) {
+          object[key] = value.toObject();
+        } else {
+          object[key] = value;
+        }
+      }
+    }
+    return object;
+  }
 };
 
 module.exports = Element;

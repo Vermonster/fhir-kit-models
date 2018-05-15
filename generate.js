@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const dust = require('dustjs-linkedin');
+const acorn = require('acorn');
+const codeGen = require('escodegen');
 
 const templateFileNames = fs.readdirSync('templates');
 
@@ -71,7 +73,15 @@ for (const schemaFileName of schemaFileNames) {
         console.log(err);
         return;
       }
-      fs.writeFileSync(`./lib/${className}.js`, out);
+      const ast = acorn.parse(out);
+      const prettyJS = codeGen.generate(ast, {
+        format: {
+          indent: {
+            style: '  ',
+          }
+        }
+      });
+      fs.writeFileSync(`./lib/${className}.js`, prettyJS);
     });
   }
 }

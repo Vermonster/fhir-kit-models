@@ -1,5 +1,7 @@
 {
   "devDependencies": {
-    "dustjs-linkedin": "^2.7.5"
+    "acorn": "^5.5.3",
+    "dustjs-linkedin": "^2.7.5",
+    "escodegen": "^1.9.1"
   }
 }

@@ -7,6 +7,16 @@ module.exports = type => {
         return target.length = value;
       }
       return target[propKey] = defaultValue(type, value);
-    }
+    },
+
+    get(target, propKey, receiver) {
+      switch(propKey) {
+      case 'toObject':
+        return function() {
+          return target.map(element => element.toObject ? element.toObject() : element);
+        };
+      }
+      return target[propKey];
+    },
   });
 };

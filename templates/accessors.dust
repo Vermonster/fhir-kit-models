@@ -10,16 +10,14 @@
 {:else}
   {?array}
     get {name}() {
-      const klass = require('./{type}');
       if (!this[_values].{name}) {
-        this[_values].{name} = ArrayProxy(klass);
+        this[_values].{name} = ArrayProxy('{type}');
       }
       return this[_values].{name};
     }
 
     set {name}(value) {
-      const klass = require('./{type}');
-      this[_values].{name} = ArrayProxy(klass);
+      this[_values].{name} = ArrayProxy('{type}');
       value.forEach(entry => this[_values].{name}.push(entry));
     }
   {:else}
