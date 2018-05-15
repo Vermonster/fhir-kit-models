@@ -12,26 +12,6 @@ for (const templateFileName of templateFileNames) {
   dust.loadSource(compiled);
 }
 
-const params = {
-  className: 'BackboneElement',
-  superClass: 'Element',
-  params: [
-    {
-      name: 'id',
-      primitive: true,
-    },
-    {
-      name: '_id',
-      type: 'Element',
-    },
-    {
-      name: 'extension',
-      array: true,
-      type: 'Element',
-    }
-  ]
-};
-
 const schemaFileNames = fs.readdirSync('resource-schemas');
 
 for (const schemaFileName of schemaFileNames) {
