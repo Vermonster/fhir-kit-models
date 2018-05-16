@@ -19,12 +19,13 @@
     set {name}(value) {
       this[_values].{name} = ArrayProxy('{type}');
       value.forEach(entry => this[_values].{name}.push(entry));
+      return this[_values].{name};
     }
   {:else}
     get {name}() {
       if (!this[_values].{name}) {
         const klass = require('./{type}');
-        return this[_values].{name} = new klass();
+        this[_values].{name} = new klass();
       }
       return this[_values].{name};
     }
@@ -34,6 +35,5 @@
       return this[_values].{name} = new klass(value);
     }
   {/array}
-
 {/primitive}
 {/params}

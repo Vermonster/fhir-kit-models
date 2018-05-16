@@ -1,10 +1,11 @@
 {>"includes"/}
 
-{>"class-definition"/}
+class {className}{?superClass} extends {superClass}{/superClass} {
 {>"constructor"/}
 
 {>"accessors"/}
 
 {>"methods"/}
+}
 
-{>"export"/}
+module.exports = {className};
