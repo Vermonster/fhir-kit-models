@@ -1,0 +1,20 @@
+{
+  "$ref": "#/definitions/DerivedResource",
+  "definitions": {
+    "DerivedResource": {
+      "allOf": [
+        {
+          "$ref": "base-resource.schema.json#/definitions/BaseResource"
+        },
+        {
+          "description": "Base definition for all elements in a resource.",
+          "properties": {
+            "own": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,12 +1,12 @@
-const defaultValue = require('./default-value');
-
-module.exports = type => {
+module.exports = klass => {
   return new Proxy(new Array(), {
     set(target, propKey, value, receiver) {
       if (propKey === 'length') {
-        return target.length = value;
+        target.length = value;
+        return true;
       }
-      return target[propKey] = defaultValue(type, value);
+      target[propKey] = new klass(value);
+      return true;
     },
 
     get(target, propKey, receiver) {

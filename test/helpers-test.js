@@ -41,6 +41,15 @@ describe('isPresent', function() {
     absentValues.forEach(value => expect(isPresent(value)).to.equal(false));
   });
 
+  it('returns false for arrays and objects with no present members', function () {
+    const absentValues = [
+      [undefined, '', [], {}],
+      // { a: undefined, b:'', c: [], d: {} }
+    ];
+
+    absentValues.forEach(value => expect(isPresent(value)).to.equal(false));
+  });
+
   it('returns the opposite of #empty for objects with an #empty method', function () {
     const objects = [
       { empty() { return true; } },

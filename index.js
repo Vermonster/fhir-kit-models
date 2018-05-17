@@ -1,5 +1,6 @@
 const Element = require('./lib/Element');
 const BackboneElement = require('./lib/BackboneElement');
+const ArrayProxy = require('./ArrayProxy');
 // const Element = require('./Element');
 // const BackboneElement = require('./BackboneElement');
 const Patient = require('./lib/Patient');

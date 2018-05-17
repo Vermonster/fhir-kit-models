@@ -11,13 +11,15 @@
   {?array}
     get {name}() {
       if (!this[_values].{name}) {
-        this[_values].{name} = ArrayProxy('{type}');
+        const klass = require('./{type}');
+        this[_values].{name} = ArrayProxy(klass);
       }
       return this[_values].{name};
     }
 
     set {name}(value) {
-      this[_values].{name} = ArrayProxy('{type}');
+      const klass = require('./{type}');
+      this[_values].{name} = ArrayProxy(klass);
       value.forEach(entry => this[_values].{name}.push(entry));
       return this[_values].{name};
     }
