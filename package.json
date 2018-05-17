@@ -6,6 +6,7 @@
   "author": "Stephen MacVicar <smacvicar@vermonster.com>",
   "license": "MIT",
   "scripts": {
+    "generate": "node generate-fhir-classes.js",
     "test": "mocha test --reporter spec"
   },
   "devDependencies": {
