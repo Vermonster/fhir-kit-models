@@ -6,7 +6,7 @@
   "author": "Stephen MacVicar <smacvicar@vermonster.com>",
   "license": "MIT",
   "scripts": {
-    "generate": "node generate-fhir-classes.js",
+    "generate": "node lib/generate-fhir-classes.js",
     "test": "mocha test --reporter spec"
   },
   "devDependencies": {
@@ -14,6 +14,7 @@
     "chai": "^4.1.2",
     "dustjs-linkedin": "^2.7.5",
     "escodegen": "^1.9.1",
-    "mocha": "^5.1.1"
+    "mocha": "^5.1.1",
+    "mock-require": "^3.0.2"
   }
 }

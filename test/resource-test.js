@@ -1,19 +1,27 @@
 /* eslint-disable func-names, no-unused-expressions */
 const { expect } = require('chai');
+const mock = require('mock-require');
 const fs = require('fs');
 const path = require('path');
 
-const { isPresent } = require('../helpers');
-const { generateClass, loadTemplates } = require('../generate');
+const { isPresent } = require('../lib/helpers');
+const { generateClass, loadTemplates } = require('../lib/generate');
 
 describe('Generated Resources', function () {
   let BaseResource;
 
   before(function () {
+    mock('../../ArrayProxy', require('../lib/ArrayProxy'));
+    mock('../../helpers', require('../lib/helpers'));
+
     loadTemplates();
     const schema = JSON.parse(fs.readFileSync(path.normalize(`${__dirname}/fixtures/base-resource.json`)));
     generateClass(schema, `${__dirname}/../tmp`);
     BaseResource = require(`${__dirname}/../tmp/BaseResource`);
+  });
+
+  after(function () {
+    mock.stopAll();
   });
 
   describe('Base Resources', function () {

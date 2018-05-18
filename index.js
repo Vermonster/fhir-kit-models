@@ -1,10 +1,10 @@
-const Element = require('./lib/Element');
-const BackboneElement = require('./lib/BackboneElement');
-const ArrayProxy = require('./ArrayProxy');
+const Element = require('./lib/generated/resources/Element');
+const BackboneElement = require('./lib/generated/resources/BackboneElement');
+const ArrayProxy = require('./lib/ArrayProxy');
 // const Element = require('./Element');
 // const BackboneElement = require('./BackboneElement');
-const Patient = require('./lib/Patient');
-const { isPresent } = require('./helpers');
+const Patient = require('./lib/generated/resources/Patient');
+const { isPresent } = require('./lib/helpers');
 const fs = require('fs');
 const path = require('path');
 

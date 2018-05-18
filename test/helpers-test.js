@@ -1,7 +1,7 @@
 /* eslint-disable func-names, no-unused-expressions */
 const { expect } = require('chai');
 
-const { isPresent } = require('../helpers');
+const { isPresent } = require('../lib/helpers');
 
 describe('isPresent', function() {
   it('returns true for non-undefined primitives', function () {
