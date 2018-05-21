@@ -2,7 +2,7 @@
 
   * [Symbol.iterator]() {
     const presentEntries = Object.entries(this[_values])
-          .filter(([_key, value]) => isPresent(value));
+      .filter(([_key, value]) => isPresent(value));
     for (const entry of presentEntries) {
       yield entry;
     }
