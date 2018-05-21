@@ -13,6 +13,6 @@
     "function-paren-newline": ["error", "consistent"],
     "new-cap": ["error", { "newIsCapExceptions": ["klass"], "capIsNewExceptions": ["ArrayProxy"] }],
     "arrow-parens": ["error", "as-needed"],
-    "no-unused-vars": ["error", { "varsIgnorePattern": "^_" }]
+    "no-unused-vars": ["error", { "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }]
   }
 }

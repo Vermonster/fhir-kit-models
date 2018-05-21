@@ -1,2 +1,2 @@
 resource-schemas/** linguist-generated=true
-lib/generated/resources/** linguist-generated=true
+lib/resources/** linguist-generated=true

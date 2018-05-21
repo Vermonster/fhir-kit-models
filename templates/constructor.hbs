@@ -3,7 +3,12 @@
     super();
 {{/if}}
     this[_values] = {};
-    if (values instanceof {{className}}{{#if superClass}} || values instanceof {{superClass}}{{/if}}) {
+{{#if superClass}}
+    if (values instanceof {{className}}{{#if superClass}} ||
+      values instanceof {{superClass}}{{/if}}) {
+{{else}}
+    if (values instanceof {{className}}) {
+{{/if}}
       for (const [key, value] of values) {
         this[key] = value;
       }
