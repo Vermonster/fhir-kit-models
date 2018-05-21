@@ -8,14 +8,15 @@ const { generateClass, loadTemplates } = require('../lib/generate');
 
 describe('Generated Resources', function () {
   let BaseResource;
+  let template;
 
   before(function () {
     mock('../../ArrayProxy', require('../lib/ArrayProxy'));
     mock('../../helpers', require('../lib/helpers'));
 
-    loadTemplates();
+    template = loadTemplates();
     const schema = JSON.parse(fs.readFileSync(path.normalize(`${__dirname}/fixtures/base-resource.json`)));
-    generateClass(schema, '../tmp');
+    generateClass(schema, '../tmp', template);
     BaseResource = require('../tmp/BaseResource');
   });
 
@@ -86,7 +87,9 @@ describe('Generated Resources', function () {
         this.baseResource.complexArray = complexValues;
 
         expect(this.baseResource.complexArray instanceof Array).to.equal(true);
-        this.baseResource.complexArray.forEach(entry => expect(entry instanceof BaseResource).to.equal(true));
+        this.baseResource.complexArray.forEach(
+          entry => expect(entry instanceof BaseResource).to.equal(true),
+        );
         expect(this.baseResource.complexArray.toObject()).to.deep.equal(complexValues);
       });
 
@@ -204,7 +207,7 @@ describe('Generated Resources', function () {
 
     before(function () {
       const schema = JSON.parse(fs.readFileSync(path.normalize(`${__dirname}/fixtures/derived-resource.json`)));
-      generateClass(schema, '../tmp');
+      generateClass(schema, '../tmp', template);
       DerivedResource = require('../tmp/DerivedResource');
     });
 

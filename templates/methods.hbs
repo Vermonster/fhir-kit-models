@@ -1,4 +1,5 @@
-{^superClass}
+{{#unless superClass}}
+
   * [Symbol.iterator]() {
     const presentEntries = Object.entries(this[_values])
           .filter(([_key, value]) => isPresent(value));
@@ -15,7 +16,7 @@
     }
     return true;
   }
-  
+
   toObject() {
     const object = {};
     for (const [key, value] of Object.entries(this[_values])) {
@@ -29,4 +30,4 @@
     }
     return object;
   }
-{/superClass}
+{{/unless}}

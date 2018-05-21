@@ -2,4 +2,3 @@ docs/
 node_modules
 coverage/**
 tmp/
-lib/generated/**

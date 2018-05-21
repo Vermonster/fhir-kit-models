@@ -9,14 +9,15 @@ const ArrayProxy = require('../lib/ArrayProxy');
 
 describe('ArrayProxy', function () {
   let BaseResource;
+  let template;
 
   before(function () {
     mock('../../ArrayProxy', require('../lib/ArrayProxy'));
     mock('../../helpers', require('../lib/helpers'));
 
-    loadTemplates();
+    template = loadTemplates();
     const schema = JSON.parse(fs.readFileSync(path.normalize(`${__dirname}/fixtures/base-resource.json`)));
-    generateClass(schema, '../tmp');
+    generateClass(schema, '../tmp', template);
     BaseResource = require('../tmp/BaseResource');
   });
 

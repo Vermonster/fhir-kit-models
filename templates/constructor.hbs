@@ -1,9 +1,9 @@
   constructor(values = {}) {
-    {?superClass}
+{{#if superClass}}
     super();
-    {/superClass}
+{{/if}}
     this[_values] = {};
-    if (values instanceof {className}{?superClass} || values instanceof {superClass}{/superClass}) {
+    if (values instanceof {{className}}{{#if superClass}} || values instanceof {{superClass}}{{/if}}) {
       for (const [key, value] of values) {
         this[key] = value;
       }

@@ -7,6 +7,11 @@
     "consistent-return": 0,
     "valid-jsdoc": 2,
     "no-underscore-dangle": 0,
+    "no-restricted-syntax": 0,
+    "global-require": 0,
+    "no-return-assign": 0,
+    "function-paren-newline": ["error", "consistent"],
+    "new-cap": ["error", { "newIsCapExceptions": ["klass"], "capIsNewExceptions": ["ArrayProxy"] }],
     "arrow-parens": ["error", "as-needed"],
     "no-unused-vars": ["error", { "varsIgnorePattern": "^_" }]
   }

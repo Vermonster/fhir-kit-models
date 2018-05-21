@@ -1,0 +1,44 @@
+{{#params}}
+  {{#if primitive}}
+
+  get {{name}}() {
+    return this[_values].{{name}};
+  }
+
+  set {{name}}(value) {
+    return this[_values].{{name}} = value;
+  }
+  {{else}}
+    {{#if array}}
+
+  get {{name}}() {
+    if (!isPresent(this[_values].{{name}})) {
+      const klass = require('./{{type}}');
+      this[_values].{{name}} = ArrayProxy(klass);
+    }
+    return this[_values].{{name}};
+  }
+
+  set {{name}}(value) {
+    const klass = require('./{{type}}');
+    this[_values].{{name}} = ArrayProxy(klass);
+    value.forEach(entry => this[_values].{{name}}.push(entry));
+    return this[_values].{{name}};
+  }
+  {{else}}
+
+  get {{name}}() {
+    if (!isPresent(this[_values].{{name}})) {
+      const klass = require('./{{type}}');
+      this[_values].{{name}} = new klass();
+    }
+    return this[_values].{{name}};
+  }
+
+  set {{name}}(value) {
+    const klass = require('./{{type}}');
+    return this[_values].{{name}} = new klass(value);
+  }
+  {{/if}}
+{{/if}}
+{{/params}}
