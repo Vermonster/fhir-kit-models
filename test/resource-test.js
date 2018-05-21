@@ -28,8 +28,10 @@ describe('Generated Resources', function () {
     describe('constructor', function () {
       it('assigns attributes from a POJO', function () {
         const attributes = {
+          resourceType: 'BaseResource',
           primitive: 'abc',
           complex: {
+            resourceType: 'BaseResource',
             primitive: 'def',
           },
         };
@@ -41,8 +43,10 @@ describe('Generated Resources', function () {
 
       it('assigns attributes from a resource', function () {
         const attributes = {
+          resourceType: 'BaseResource',
           primitive: 'abc',
           complex: {
+            resourceType: 'BaseResource',
             primitive: 'def',
           },
         };
@@ -52,6 +56,12 @@ describe('Generated Resources', function () {
 
         expect(resource.toObject()).to.deep.equal(attributes);
       });
+    });
+
+    it('sets resourceType', function () {
+      const resource = new BaseResource();
+
+      expect(resource.resourceType).to.equal('BaseResource');
     });
 
     describe('attributes', function () {
@@ -67,7 +77,7 @@ describe('Generated Resources', function () {
       });
 
       it('provides read and write access for complex values', function () {
-        const complexValue = { primitive: 'abc' };
+        const complexValue = { primitive: 'abc', resourceType: 'BaseResource' };
         this.baseResource.complex = complexValue;
 
         expect(this.baseResource.complex instanceof BaseResource).to.equal(true);
@@ -83,7 +93,7 @@ describe('Generated Resources', function () {
       });
 
       it('provides read and write access for arrays of complex values', function () {
-        const complexValues = [{ primitive: 'abc' }, { primitive: 'def' }];
+        const complexValues = [{ primitive: 'abc', resourceType: 'BaseResource' }, { primitive: 'def', resourceType: 'BaseResource' }];
         this.baseResource.complexArray = complexValues;
 
         expect(this.baseResource.complexArray instanceof Array).to.equal(true);
@@ -105,6 +115,7 @@ describe('Generated Resources', function () {
       it('iterates over all present values', function () {
         const complex = new BaseResource({ primitive: 'def' });
         const attributes = {
+          resourceType: 'BaseResource',
           primitive: 'abc',
           primitiveArray: [null],
           complex,
@@ -123,6 +134,7 @@ describe('Generated Resources', function () {
       it('does not iterate over empty values', function () {
         const complex = new BaseResource();
         const attributes = {
+          resourceType: undefined,
           primitive: '',
           primitiveArray: [],
           complex,
@@ -154,6 +166,12 @@ describe('Generated Resources', function () {
         emptyResources.forEach(resource => expect(resource.empty()).to.equal(true));
       });
 
+      it('returns true for resources with only a resourceType', function () {
+        const emptyResource = new BaseResource({ resourceType: 'BaseResource' });
+
+        expect(emptyResource.empty()).to.equal(true);
+      });
+
       it('returns false for non-empty resources', function () {
         const presentResources = [
           new BaseResource({ primitive: 1 }),
@@ -173,8 +191,10 @@ describe('Generated Resources', function () {
     describe('#toObject', function () {
       it('returns a POJO of the resource attributes', function () {
         const attributes = {
+          resourceType: 'BaseResource',
           primitive: 'abc',
           complex: {
+            resourceType: 'BaseResource',
             primitive: 'def',
           },
         };
@@ -186,6 +206,7 @@ describe('Generated Resources', function () {
 
       it('omits empty attributes', function () {
         const attributes = {
+          resourceType: 'BaseResource',
           primitive: 'abc',
           primitiveArray: [1],
           complexArray: [],
@@ -197,7 +218,7 @@ describe('Generated Resources', function () {
           expect(value).to.equal(resource[key]);
         }
 
-        expect(Object.keys(pojo)).to.deep.equal(['primitive', 'primitiveArray']);
+        expect(Object.keys(pojo)).to.deep.equal(['resourceType', 'primitive', 'primitiveArray']);
       });
     });
   });
@@ -214,8 +235,10 @@ describe('Generated Resources', function () {
     describe('constructor', function () {
       it('assigns attributes from a POJO', function () {
         const attributes = {
+          resourceType: 'DerivedResource',
           primitive: 'abc',
           complex: {
+            resourceType: 'BaseResource',
             primitive: 'def',
           },
           own: 'ghi',
@@ -228,8 +251,10 @@ describe('Generated Resources', function () {
 
       it('assigns attributes from a resource', function () {
         const attributes = {
+          resourceType: 'DerivedResource',
           primitive: 'abc',
           complex: {
+            resourceType: 'BaseResource',
             primitive: 'def',
           },
           own: 'ghi',
@@ -243,8 +268,10 @@ describe('Generated Resources', function () {
 
       it('assigns attributes from its base resource', function () {
         const attributes = {
+          resourceType: 'BaseResource',
           primitive: 'abc',
           complex: {
+            resourceType: 'BaseResource',
             primitive: 'def',
           },
         };
@@ -272,6 +299,7 @@ describe('Generated Resources', function () {
       it('iterates over all present values', function () {
         const complex = new BaseResource({ primitive: 'def' });
         const attributes = {
+          resourceType: 'DerivedResource',
           primitive: 'abc',
           primitiveArray: [null],
           complex,
@@ -325,8 +353,10 @@ describe('Generated Resources', function () {
     describe('#toObject', function () {
       it('returns a POJO of the resource attributes', function () {
         const attributes = {
+          resourceType: 'DerivedResource',
           primitive: 'abc',
           complex: {
+            resourceType: 'BaseResource',
             primitive: 'def',
           },
           own: 'ghi',
@@ -339,6 +369,7 @@ describe('Generated Resources', function () {
 
       it('omits empty attributes', function () {
         const attributes = {
+          resourceType: undefined,
           primitive: 'abc',
           primitiveArray: [1],
           complexArray: [],

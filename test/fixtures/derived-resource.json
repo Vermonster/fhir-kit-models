@@ -9,6 +9,9 @@
         {
           "description": "Base definition for all elements in a resource.",
           "properties": {
+            "resourceType": {
+              "type": "string"
+            },
             "own": {
               "type": "string"
             }

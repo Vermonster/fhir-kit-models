@@ -44,7 +44,9 @@ describe('isPresent', function () {
   it('returns false for arrays and objects with no present members', function () {
     const absentValues = [
       [undefined, '', [], {}],
-      // { a: undefined, b:'', c: [], d: {} }
+      {
+        a: undefined, b: '', c: [], d: {},
+      },
     ];
 
     absentValues.forEach(value => expect(isPresent(value)).to.equal(false));

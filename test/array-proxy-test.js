@@ -19,6 +19,7 @@ describe('ArrayProxy', function () {
     const schema = JSON.parse(fs.readFileSync(path.normalize(`${__dirname}/fixtures/base-resource.json`)));
     generateClass(schema, 'tmp', template);
     BaseResource = require('../tmp/BaseResource');
+    mock('resources/BaseResource', require('../tmp/BaseResource'));
   });
 
   after(function () {
@@ -52,31 +53,78 @@ describe('ArrayProxy', function () {
   });
 
   describe('setter', function () {
-    it('converts POJOs to resources', function () {
-      const attributes = { primitive: 1 };
+    context('when initialized with a type', function () {
+      it('converts POJOs to resources', function () {
+        const attributes = { resourceType: 'BaseResource', primitive: 1 };
 
-      this.proxy.push(attributes);
+        this.proxy.push(attributes);
 
-      expect(this.proxy[0] instanceof BaseResource).to.equal(true);
-      expect(this.proxy[0].toObject()).to.deep.equal(attributes);
+        expect(this.proxy[0] instanceof BaseResource).to.equal(true);
+        expect(this.proxy[0].toObject()).to.deep.equal(attributes);
+      });
+
+      it('accepts resources', function () {
+        const attributes = { resourceType: 'BaseResource', primitive: 1 };
+        const resource = new BaseResource(attributes);
+
+        this.proxy.push(resource);
+
+        expect(this.proxy[0] instanceof BaseResource).to.equal(true);
+        expect(this.proxy[0].toObject()).to.deep.equal(attributes);
+      });
     });
 
-    it('accepts resources', function () {
-      const attributes = { primitive: 1 };
-      const resource = new BaseResource(attributes);
+    context('when initialized without a type', function () {
+      it('converts POJOs to resources', function () {
+        const attributes = { resourceType: 'BaseResource', primitive: 1 };
 
-      this.proxy.push(resource);
+        const proxy = ArrayProxy();
+        proxy.push(attributes);
 
-      expect(this.proxy[0] instanceof BaseResource).to.equal(true);
-      expect(this.proxy[0].toObject()).to.deep.equal(attributes);
+        expect(proxy[0] instanceof BaseResource).to.equal(true);
+        expect(proxy[0].toObject()).to.deep.equal(attributes);
+      });
+
+      it('accepts resources', function () {
+        const attributes = { resourceType: 'BaseResource', primitive: 1 };
+        const resource = new BaseResource(attributes);
+
+        const proxy = ArrayProxy();
+        proxy.push(resource);
+
+        expect(proxy[0] instanceof BaseResource).to.equal(true);
+        expect(proxy[0].toObject()).to.deep.equal(attributes);
+      });
+
+      it('throws an error if resourceType contains non-alhpabetic characters', function () {
+        const resources = [
+          { resourceType: '../ArrayProxy' },
+          { resourceType: '123' },
+        ];
+
+        const proxy = ArrayProxy();
+        resources.forEach(resource => {
+          const errorMessage = `Invalid resourceType: ${resource.resourceType}`;
+          expect(() => proxy.push(resource)).to.throw(errorMessage);
+        });
+      });
+
+      it('throws an error if resourceType is missing', function () {
+        const resource = { resourceType: 'NonexistentResource' };
+
+        const proxy = ArrayProxy();
+
+        const errorMessage = `Unknown resourceType: ${resource.resourceType}`;
+        expect(() => proxy.push(resource)).to.throw(errorMessage);
+      });
     });
   });
 
   describe('#toObject', function () {
     it('returns a POJO representation of the proxy', function () {
       const attributes = [
-        { primitive: 1 },
-        { primitive: 2 },
+        { resourceType: 'BaseResource', primitive: 1 },
+        { resourceType: 'BaseResource', primitive: 2 },
       ];
 
       attributes.forEach(attrs => this.proxy.push(attrs));

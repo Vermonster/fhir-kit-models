@@ -9,7 +9,8 @@
   }
 
   empty() {
-    for (const [_key, value] of Object.entries(this[_values])) {
+    const entries = Object.entries(this[_values]).filter(([key]) => key !== 'resourceType');
+    for (const [_key, value] of entries) {
       if (isPresent(value)) {
         return false;
       }

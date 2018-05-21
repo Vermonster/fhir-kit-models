@@ -14,14 +14,14 @@
   get {{name}}() {
     if (!isPresent(this[_values].{{name}})) {
       const klass = require('./{{type}}');
-      this[_values].{{name}} = ArrayProxy(klass);
+      this[_values].{{name}} = ArrayProxy({{#unless anyResource}}klass{{/unless}});
     }
     return this[_values].{{name}};
   }
 
   set {{name}}(value) {
     const klass = require('./{{type}}');
-    this[_values].{{name}} = ArrayProxy(klass);
+    this[_values].{{name}} = ArrayProxy({{#unless anyResource}}klass{{/unless}});
     value.forEach(entry => this[_values].{{name}}.push(entry));
     return this[_values].{{name}};
   }
