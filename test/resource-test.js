@@ -11,12 +11,12 @@ describe('Generated Resources', function () {
   let template;
 
   before(function () {
-    mock('../../ArrayProxy', require('../lib/ArrayProxy'));
-    mock('../../helpers', require('../lib/helpers'));
+    mock('../ArrayProxy', require('../lib/ArrayProxy'));
+    mock('../helpers', require('../lib/helpers'));
 
     template = loadTemplates();
     const schema = JSON.parse(fs.readFileSync(path.normalize(`${__dirname}/fixtures/base-resource.json`)));
-    generateClass(schema, '../tmp', template);
+    generateClass(schema, 'tmp', template);
     BaseResource = require('../tmp/BaseResource');
   });
 
@@ -207,7 +207,7 @@ describe('Generated Resources', function () {
 
     before(function () {
       const schema = JSON.parse(fs.readFileSync(path.normalize(`${__dirname}/fixtures/derived-resource.json`)));
-      generateClass(schema, '../tmp', template);
+      generateClass(schema, 'tmp', template);
       DerivedResource = require('../tmp/DerivedResource');
     });
 
