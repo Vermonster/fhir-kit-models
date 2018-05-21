@@ -1,5 +1,5 @@
-const ArrayProxy = require('./ArrayProxy');
-const { isPresent, _values } = require('./helpers');
+const ArrayProxy = require('./lib/ArrayProxy');
+const { isPresent, _values } = require('./lib/helpers');
 
 const Element = require('./Element');
 

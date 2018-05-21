@@ -1,4 +1,4 @@
-/* eslint-disable func-names, no-unused-expressions */
+/* eslint-disable func-names, no-unused-expressions, global-require, no-plusplus */
 const { expect } = require('chai');
 const mock = require('mock-require');
 const fs = require('fs');
@@ -16,8 +16,8 @@ describe('ArrayProxy', function () {
 
     loadTemplates();
     const schema = JSON.parse(fs.readFileSync(path.normalize(`${__dirname}/fixtures/base-resource.json`)));
-    generateClass(schema, `${__dirname}/../tmp`);
-    BaseResource = require(`${__dirname}/../tmp/BaseResource`);
+    generateClass(schema, '../tmp');
+    BaseResource = require('../tmp/BaseResource');
   });
 
   after(function () {
@@ -52,7 +52,7 @@ describe('ArrayProxy', function () {
 
   describe('setter', function () {
     it('converts POJOs to resources', function () {
-      const attributes = { primitive: 1};
+      const attributes = { primitive: 1 };
 
       this.proxy.push(attributes);
 
@@ -61,7 +61,7 @@ describe('ArrayProxy', function () {
     });
 
     it('accepts resources', function () {
-      const attributes = { primitive: 1};
+      const attributes = { primitive: 1 };
       const resource = new BaseResource(attributes);
 
       this.proxy.push(resource);

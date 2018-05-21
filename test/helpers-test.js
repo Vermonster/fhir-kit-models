@@ -3,7 +3,7 @@ const { expect } = require('chai');
 
 const { isPresent } = require('../lib/helpers');
 
-describe('isPresent', function() {
+describe('isPresent', function () {
   it('returns true for non-undefined primitives', function () {
     const presentValues = [
       true,
@@ -27,7 +27,7 @@ describe('isPresent', function() {
     presentValues.forEach(value => expect(isPresent(value)).to.equal(true));
   });
 
-  it('returns false for undefined', function() {
+  it('returns false for undefined', function () {
     expect(isPresent(undefined)).to.equal(false);
   });
 

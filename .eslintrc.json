@@ -1,0 +1,13 @@
+{
+  "env": {
+    "node": true
+  },
+  "extends": "airbnb-base",
+  "rules": {
+    "consistent-return": 0,
+    "valid-jsdoc": 2,
+    "no-underscore-dangle": 0,
+    "arrow-parens": ["error", "as-needed"],
+    "no-unused-vars": ["error", { "varsIgnorePattern": "^_" }]
+  }
+}

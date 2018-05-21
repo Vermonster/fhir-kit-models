@@ -1,10 +1,9 @@
-/* eslint-disable func-names, no-unused-expressions */
+/* eslint-disable func-names, no-unused-expressions, global-require */
 const { expect } = require('chai');
 const mock = require('mock-require');
 const fs = require('fs');
 const path = require('path');
 
-const { isPresent } = require('../lib/helpers');
 const { generateClass, loadTemplates } = require('../lib/generate');
 
 describe('Generated Resources', function () {
@@ -16,8 +15,8 @@ describe('Generated Resources', function () {
 
     loadTemplates();
     const schema = JSON.parse(fs.readFileSync(path.normalize(`${__dirname}/fixtures/base-resource.json`)));
-    generateClass(schema, `${__dirname}/../tmp`);
-    BaseResource = require(`${__dirname}/../tmp/BaseResource`);
+    generateClass(schema, '../tmp');
+    BaseResource = require('../tmp/BaseResource');
   });
 
   after(function () {
@@ -26,7 +25,7 @@ describe('Generated Resources', function () {
 
   describe('Base Resources', function () {
     describe('constructor', function () {
-      it('assigns attributes from a POJO', function() {
+      it('assigns attributes from a POJO', function () {
         const attributes = {
           primitive: 'abc',
           complex: {
@@ -39,7 +38,7 @@ describe('Generated Resources', function () {
         expect(resource.toObject()).to.deep.equal(attributes);
       });
 
-      it('assigns attributes from a resource', function() {
+      it('assigns attributes from a resource', function () {
         const attributes = {
           primitive: 'abc',
           complex: {
@@ -129,7 +128,7 @@ describe('Generated Resources', function () {
         const resource = new BaseResource(attributes);
         const visitedKeys = [];
 
-        for (const [key, value] of resource) {
+        for (const [key] of resource) {
           visitedKeys.push(key);
         }
 
@@ -157,16 +156,18 @@ describe('Generated Resources', function () {
           new BaseResource({ primitive: 1 }),
           new BaseResource({
             complex: new BaseResource({
-              complex: new BaseResource({ primitive: 2 })
-            })
+              complex: new BaseResource({
+                primitive: 2,
+              }),
+            }),
           }),
         ];
 
-        presentResources.forEach(resource => expect(resource.empty()).to.equal(false))
+        presentResources.forEach(resource => expect(resource.empty()).to.equal(false));
       });
     });
 
-    describe('#toObject', function() {
+    describe('#toObject', function () {
       it('returns a POJO of the resource attributes', function () {
         const attributes = {
           primitive: 'abc',
@@ -203,12 +204,12 @@ describe('Generated Resources', function () {
 
     before(function () {
       const schema = JSON.parse(fs.readFileSync(path.normalize(`${__dirname}/fixtures/derived-resource.json`)));
-      generateClass(schema, `${__dirname}/../tmp`);
-      DerivedResource = require(`${__dirname}/../tmp/DerivedResource`);
+      generateClass(schema, '../tmp');
+      DerivedResource = require('../tmp/DerivedResource');
     });
 
     describe('constructor', function () {
-      it('assigns attributes from a POJO', function() {
+      it('assigns attributes from a POJO', function () {
         const attributes = {
           primitive: 'abc',
           complex: {
@@ -222,7 +223,7 @@ describe('Generated Resources', function () {
         expect(resource.toObject()).to.deep.equal(attributes);
       });
 
-      it('assigns attributes from a resource', function() {
+      it('assigns attributes from a resource', function () {
         const attributes = {
           primitive: 'abc',
           complex: {
@@ -237,7 +238,7 @@ describe('Generated Resources', function () {
         expect(resource.toObject()).to.deep.equal(attributes);
       });
 
-      it('assigns attributes from its base resource', function() {
+      it('assigns attributes from its base resource', function () {
         const attributes = {
           primitive: 'abc',
           complex: {
@@ -306,8 +307,10 @@ describe('Generated Resources', function () {
           new DerivedResource({ primitive: 1 }),
           new DerivedResource({
             complex: new BaseResource({
-              complex: new BaseResource({ primitive: 2 })
-            })
+              complex: new BaseResource({
+                primitive: 2,
+              }),
+            }),
           }),
           new DerivedResource({ own: 3 }),
         ];
@@ -316,7 +319,7 @@ describe('Generated Resources', function () {
       });
     });
 
-    describe('#toObject', function() {
+    describe('#toObject', function () {
       it('returns a POJO of the resource attributes', function () {
         const attributes = {
           primitive: 'abc',
