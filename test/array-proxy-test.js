@@ -18,7 +18,6 @@ describe('ArrayProxy', function () {
     template = loadTemplates();
     const schema = JSON.parse(fs.readFileSync(path.normalize(`${__dirname}/fixtures/base-resource.json`)));
     generateClass(schema, 'tmp', template);
-    console.log('class generated');
     BaseResource = require('../tmp/BaseResource');
   });
 
