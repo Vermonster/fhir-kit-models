@@ -1,5 +1,5 @@
 {{#if usesArrayProxy}}const ArrayProxy = require('../ArrayProxy');{{/if}}
-const { {{#if usesIsPresent }}isPresent, {{/if}}_values } = require('../helpers');
+const { {{#if usesIsPresent }}isPresent, {{/if}}{{#if usesLoadResource}}loadResource, {{/if}}_values } = require('../helpers');
 {{#if superClass}}
 
 const {{superClass}} = require('./{{superClass}}');

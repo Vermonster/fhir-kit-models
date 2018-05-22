@@ -95,28 +95,6 @@ describe('ArrayProxy', function () {
         expect(proxy[0] instanceof BaseResource).to.equal(true);
         expect(proxy[0].toObject()).to.deep.equal(attributes);
       });
-
-      it('throws an error if resourceType contains non-alhpabetic characters', function () {
-        const resources = [
-          { resourceType: '../ArrayProxy' },
-          { resourceType: '123' },
-        ];
-
-        const proxy = ArrayProxy();
-        resources.forEach(resource => {
-          const errorMessage = `Invalid resourceType: ${resource.resourceType}`;
-          expect(() => proxy.push(resource)).to.throw(errorMessage);
-        });
-      });
-
-      it('throws an error if resourceType is missing', function () {
-        const resource = { resourceType: 'NonexistentResource' };
-
-        const proxy = ArrayProxy();
-
-        const errorMessage = `Unknown resourceType: ${resource.resourceType}`;
-        expect(() => proxy.push(resource)).to.throw(errorMessage);
-      });
     });
   });
 

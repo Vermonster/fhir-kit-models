@@ -1,7 +1,8 @@
 /* eslint-disable func-names, no-unused-expressions */
 const { expect } = require('chai');
+const mock = require('mock-require');
 
-const { isPresent } = require('../lib/helpers');
+const { isPresent, loadResource } = require('../lib/helpers');
 
 describe('isPresent', function () {
   it('returns true for non-undefined primitives', function () {
@@ -59,5 +60,46 @@ describe('isPresent', function () {
     ];
 
     objects.forEach(object => expect(isPresent(object)).to.equal(!object.empty()));
+  });
+});
+
+describe('loadResource', function () {
+  const testResource = { abc: '123' };
+
+  before(function () {
+    mock('resources/TestResource', testResource);
+  });
+
+  after(function () {
+    mock.stopAll();
+  });
+
+  it('loads the specified resourceType', function () {
+    expect(loadResource('TestResource')).to.deep.equal(testResource);
+  });
+
+  it('throws an error if resourceType is not specified', function () {
+    const resourceTypes = ['', undefined];
+    const errorMessage = 'resourceType must be specified';
+
+    resourceTypes.forEach(resourceType => {
+      expect(() => loadResource(resourceType)).to.throw(errorMessage);
+    });
+  });
+
+  it('throws an error if resourceType contains non-alhpabetic characters', function () {
+    const resourceTypes = ['../ArrayProxy', '123'];
+
+    resourceTypes.forEach(resourceType => {
+      const errorMessage = `Invalid resourceType: ${resourceType}`;
+      expect(() => loadResource(resourceType)).to.throw(errorMessage);
+    });
+  });
+
+  it('throws an error if resourceType is not found', function () {
+    const resourceType = 'NonexistentResource';
+
+    const errorMessage = `Unknown resourceType: ${resourceType}`;
+    expect(() => loadResource(resourceType)).to.throw(errorMessage);
   });
 });
