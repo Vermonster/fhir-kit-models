@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint .",
-    "generate": "node -e 'require(\"./lib/generate\").createClasses()'",
+    "build": "node -e 'require(\"./lib/generate\").createClasses()'",
     "test": "mocha test --reporter spec"
   },
   "devDependencies": {
