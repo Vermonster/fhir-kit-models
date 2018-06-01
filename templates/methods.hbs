@@ -21,4 +21,12 @@
     }
     return object;
   }
+
+  keys() {
+    return Object.keys(this[_values]);
+  }
+
+  entries() {
+    return Object.entries(this[_values]);
+  }
 {{/unless}}

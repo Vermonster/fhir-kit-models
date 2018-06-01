@@ -184,6 +184,40 @@ describe('Generated Resources', function () {
         expect(Object.keys(pojo)).to.deep.equal(['resourceType', 'primitive', 'primitiveArray']);
       });
     });
+
+    describe('#keys', function () {
+      it('returns an array of property keys', function () {
+        const attributes = {
+          resourceType: 'BaseResource',
+          primitive: 'abc',
+          complex: {
+            resourceType: 'BaseResource',
+            primitive: 'def',
+          },
+        };
+
+        const resource = new BaseResource(attributes);
+
+        expect(resource.keys()).to.deep.equal(Object.keys(attributes));
+      });
+    });
+
+    describe('#entries', function () {
+      it('returns an array of object entries', function () {
+        const attributes = {
+          resourceType: 'BaseResource',
+          primitive: 'abc',
+          complex: new BaseResource({
+            resourceType: 'BaseResource',
+            primitive: 'def',
+          }),
+        };
+
+        const resource = new BaseResource(attributes);
+
+        expect(resource.entries()).to.deep.equal(Object.entries(attributes));
+      });
+    });
   });
 
   describe('Derived Resources', function () {
