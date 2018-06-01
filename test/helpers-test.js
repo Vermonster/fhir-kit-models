@@ -53,13 +53,10 @@ describe('isPresent', function () {
     absentValues.forEach(value => expect(isPresent(value)).to.equal(false));
   });
 
-  it('returns the opposite of #empty for objects with an #empty method', function () {
-    const objects = [
-      { empty() { return true; } },
-      { empty() { return false; } },
-    ];
+  it('returns false for objects with only a resourceType key', function () {
+    const object = { resourceType: 'Resource' };
 
-    objects.forEach(object => expect(isPresent(object)).to.equal(!object.empty()));
+    expect(isPresent(object)).to.equal(false);
   });
 });
 

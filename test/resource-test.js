@@ -151,43 +151,6 @@ describe('Generated Resources', function () {
       });
     });
 
-    describe('#empty', function () {
-      it('returns true for empty resources', function () {
-        const emptyResources = [
-          new BaseResource(),
-          new BaseResource({
-            primitive: '',
-            complex: new BaseResource(),
-            primitiveArray: [],
-            complexArray: [],
-          }),
-        ];
-
-        emptyResources.forEach(resource => expect(resource.empty()).to.equal(true));
-      });
-
-      it('returns true for resources with only a resourceType', function () {
-        const emptyResource = new BaseResource({ resourceType: 'BaseResource' });
-
-        expect(emptyResource.empty()).to.equal(true);
-      });
-
-      it('returns false for non-empty resources', function () {
-        const presentResources = [
-          new BaseResource({ primitive: 1 }),
-          new BaseResource({
-            complex: new BaseResource({
-              complex: new BaseResource({
-                primitive: 2,
-              }),
-            }),
-          }),
-        ];
-
-        presentResources.forEach(resource => expect(resource.empty()).to.equal(false));
-      });
-    });
-
     describe('#toObject', function () {
       it('returns a POJO of the resource attributes', function () {
         const attributes = {
@@ -314,39 +277,6 @@ describe('Generated Resources', function () {
         }
 
         expect(visitedKeys).to.deep.equal(Object.keys(attributes));
-      });
-    });
-
-    describe('#empty', function () {
-      it('returns true for empty resources', function () {
-        const emptyResources = [
-          new DerivedResource(),
-          new DerivedResource({
-            primitive: '',
-            complex: new BaseResource(),
-            primitiveArray: [],
-            complexArray: [],
-            own: undefined,
-          }),
-        ];
-
-        emptyResources.forEach(resource => expect(resource.empty()).to.equal(true));
-      });
-
-      it('returns false for non-empty resources', function () {
-        const presentResources = [
-          new DerivedResource({ primitive: 1 }),
-          new DerivedResource({
-            complex: new BaseResource({
-              complex: new BaseResource({
-                primitive: 2,
-              }),
-            }),
-          }),
-          new DerivedResource({ own: 3 }),
-        ];
-
-        presentResources.forEach(resource => expect(resource.empty()).to.equal(false));
       });
     });
 
