@@ -24,7 +24,7 @@
             "primitiveArray": {
               "type": "array",
               "items": {
-                "$ref": "string"
+                "type": "string"
               }
             }
           }
