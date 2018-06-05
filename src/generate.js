@@ -4,7 +4,7 @@ const Handlebars = require('handlebars'); // eslint-disable-line import/no-extra
 
 const loadTemplates = () => {
   const baseTemplateFilename = 'element-template.hbs';
-  const baseTemplatepath = normalize(`${__dirname}/../templates`);
+  const baseTemplatepath = normalize(`${__dirname}/templates`);
   const templateFileNames = fs.readdirSync(baseTemplatepath);
   templateFileNames.forEach(filename => {
     if (filename === baseTemplateFilename) {
@@ -86,15 +86,30 @@ const generateClasses = (schemaFileNames, outputPath, template) => {
   }
 };
 
+const copyStaticFiles = destinationPath => {
+  const staticFiles = ['index.js', 'helpers.js', 'ArrayProxy.js'];
+  const sourcePath = normalize(`${__dirname}/../src`);
+
+  staticFiles.forEach(file => {
+    fs.copyFile(`${sourcePath}/${file}`, `${destinationPath}/${file}`, err => {
+      if (err) throw err;
+      console.log(`Generating: ${file}`); // eslint-disable-line no-console
+    });
+  });
+};
+
 const createClasses = () => {
   const template = loadTemplates();
+  const destinationPath = normalize(`${__dirname}/../dist`);
 
   const schemaFileNames = fs.readdirSync(normalize(`${__dirname}/../resource-schemas`));
-  generateClasses(schemaFileNames, `${__dirname}/../dist`, template);
+  generateClasses(schemaFileNames, destinationPath, template);
+  copyStaticFiles(destinationPath);
 };
 
 module.exports = {
   loadTemplates,
   generateClass,
+  copyStaticFiles,
   createClasses,
 };
