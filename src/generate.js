@@ -2,9 +2,10 @@ const fs = require('fs');
 const { normalize } = require('path');
 const Handlebars = require('handlebars'); // eslint-disable-line import/no-extraneous-dependencies
 
-const loadTemplates = () => {
+const baseTemplatepath = normalize(`${__dirname}/templates`);
+
+const loadResourceTemplates = () => {
   const baseTemplateFilename = 'element-template.hbs';
-  const baseTemplatepath = normalize(`${__dirname}/templates`);
   const templateFileNames = fs.readdirSync(baseTemplatepath);
   templateFileNames.forEach(filename => {
     if (filename === baseTemplateFilename) {
@@ -19,8 +20,8 @@ const loadTemplates = () => {
 
 const propertyParams = ([name, properties]) => {
   const array = properties.type === 'array';
-  let objectProperties = array ? properties.items : properties;
-  let type = objectProperties.$ref ? objectProperties.$ref.slice(objectProperties.$ref.lastIndexOf('/') + 1) : objectProperties.type;
+  const objectProperties = array ? properties.items : properties;
+  const type = objectProperties.$ref ? objectProperties.$ref.slice(objectProperties.$ref.lastIndexOf('/') + 1) : objectProperties.type;
 
   const primitive = !objectProperties.$ref;
   const anyResource = type === 'ResourceList';
@@ -76,18 +77,32 @@ const generateClass = (schema, outputPath, template) => {
   }
 };
 
+
+const generateEntryPont = (resouceFileNames, destinationPath) => {
+  const entryPointTemplate = Handlebars.compile(fs.readFileSync(normalize(`${baseTemplatepath}/index.hbs`), 'utf8'));
+  const resourceFileNames = resouceFileNames.map(fileName => fileName.slice(0, fileName.indexOf('.')));
+
+  const output = entryPointTemplate({ resourceFileNames: resourceFileNames });
+
+  fs.writeFileSync(normalize(`${destinationPath}/index.js`), output);
+  console.log('Generating: index.js'); // eslint-disable-line no-console
+};
+
 const generateClasses = (schemaFileNames, outputPath, template) => {
+  const selectedSchemaFileNames = [];
   for (const schemaFileName of schemaFileNames) {
     if (schemaFileName === 'ResourceList.schema.json' || schemaFileName === 'fhir.schema.json') {
       continue;
     }
     const schema = JSON.parse(fs.readFileSync(normalize(`${__dirname}/../resource-schemas/${schemaFileName}`), 'utf8'));
     generateClass(schema, outputPath, template);
+    selectedSchemaFileNames.push(schemaFileName);
   }
+  generateEntryPont(selectedSchemaFileNames, outputPath);
 };
 
 const copyStaticFiles = destinationPath => {
-  const staticFiles = ['index.js', 'helpers.js', 'ArrayProxy.js'];
+  const staticFiles = ['helpers.js', 'ArrayProxy.js'];
   const sourcePath = normalize(`${__dirname}/../src`);
 
   staticFiles.forEach(file => {
@@ -98,17 +113,19 @@ const copyStaticFiles = destinationPath => {
   });
 };
 
-const createClasses = () => {
-  const template = loadTemplates();
-  const destinationPath = normalize(`${__dirname}/../dist`);
 
+const createClasses = () => {
+  // TODO Consider movingg resourceTemplate to generateEntryPont
+  const resourceTemplate = loadResourceTemplates();
+  const destinationPath = normalize(`${__dirname}/../dist`);
   const schemaFileNames = fs.readdirSync(normalize(`${__dirname}/../resource-schemas`));
-  generateClasses(schemaFileNames, destinationPath, template);
+
+  generateClasses(schemaFileNames, destinationPath, resourceTemplate);
   copyStaticFiles(destinationPath);
 };
 
 module.exports = {
-  loadTemplates,
+  loadResourceTemplates,
   generateClass,
   copyStaticFiles,
   createClasses,
