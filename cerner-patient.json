@@ -1,0 +1,3974 @@
+{
+  "resourceType": "Patient",
+  "id": "1316024",
+  "meta": {
+    "versionId": "35",
+    "lastUpdated": "2017-08-31T19:30:35.000Z"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div><p><b>Patient</b></p><p><b>Name</b>: PETERS, TIMOTHY</p><p><b>DOB</b>: 1961-04-30</p><p><b>Administrative Gender</b>: Male</p><p><b>Marital Status</b>: Single</p><p><b>Status</b>: Active</p></div>"
+  },
+  "extension": [
+    {
+      "url": "http://fhir.org/guides/argonaut/StructureDefinition/argo-race",
+      "extension": [
+        {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "http://hl7.org/fhir/v3/Race",
+            "code": "2106-3",
+            "display": "White",
+            "userSelected": false
+          }
+        },
+        {
+          "url": "text",
+          "valueString": "White"
+        }
+      ]
+    },
+    {
+      "url": "http://fhir.org/guides/argonaut/StructureDefinition/argo-ethnicity",
+      "extension": [
+        {
+          "url": "text",
+          "valueString": "Patient Refuses or Does Not Know"
+        }
+      ]
+    }
+  ],
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/v2/0203",
+            "code": "MR",
+            "display": "Medical record number",
+            "userSelected": false
+          }
+        ],
+        "text": "MRN"
+      },
+      "system": "urn:oid:2.2.2.2.2.2",
+      "value": "10000883",
+      "period": {
+        "start": "2017-08-31T19:30:34.000Z"
+      }
+    },
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/v2/0203",
+            "code": "MR",
+            "display": "Medical record number",
+            "userSelected": false
+          }
+        ],
+        "text": "MRN"
+      },
+      "system": "urn:oid:1.1.1.1.1.1",
+      "value": "348348348",
+      "period": {
+        "start": "2012-05-17T14:54:30.000Z"
+      }
+    },
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/v2/0203",
+            "code": "AN",
+            "display": "Account number",
+            "userSelected": false
+          }
+        ],
+        "text": "Federated Person Principal"
+      },
+      "system": "urn:oid:2.16.840.1.113883.3.13.6",
+      "value": "URN:CERNER:IDENTITY-FEDERATION:REALM:687F29DD-69DD-4DE5-ACB1-FD8A2241EF3A:PRINCIPAL:EC4AX54P8GI",
+      "period": {
+        "start": "2016-11-01T10:00:00.000Z"
+      }
+    },
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/v2/0203",
+            "code": "AN",
+            "display": "Account number",
+            "userSelected": false
+          }
+        ],
+        "text": "Federated Person Principal"
+      },
+      "system": "urn:oid:2.16.840.1.113883.3.13.6",
+      "value": "NEW-FEDPRINCIPAL-ALIAS-12212016",
+      "period": {
+        "start": "2016-01-02T05:00:00.000Z",
+        "end": "2017-01-02T05:00:00.000Z"
+      }
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "text": "PETERS, TIMOTHY",
+      "family": [
+        "PETERS"
+      ],
+      "given": [
+        "TIMOTHY"
+      ],
+      "period": {
+        "start": "2012-05-17T14:54:31.000Z"
+      }
+    },
+    {
+      "use": "usual",
+      "given": [
+        "TIM"
+      ],
+      "period": {
+        "start": "2012-05-22T15:45:50.000Z"
+      }
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "1231231231",
+      "use": "work",
+      "period": {
+        "start": "2013-03-11T07:17:03.000Z"
+      }
+    },
+    {
+      "system": "phone",
+      "value": "8168229121",
+      "use": "home",
+      "period": {
+        "start": "2012-05-17T15:33:18.000Z"
+      }
+    },
+    {
+      "system": "phone",
+      "value": "8162324455",
+      "use": "mobile",
+      "period": {
+        "start": "2013-01-30T14:56:59.000Z"
+      }
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1961-04-30",
+  "address": [
+    {
+      "use": "home",
+      "text": "9430 Blue Ridge Blvd\nKansas City, MO 64199\nUSA",
+      "line": [
+        "9430 Blue Ridge Blvd"
+      ],
+      "city": "Kansas City",
+      "district": "Jackson",
+      "state": "MO",
+      "postalCode": "64199",
+      "country": "USA",
+      "period": {
+        "start": "2012-05-17T15:33:18.000Z"
+      }
+    }
+  ],
+  "maritalStatus": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/marital-status",
+        "code": "U",
+        "display": "Unmarried",
+        "userSelected": false
+      }
+    ],
+    "text": "Single"
+  },
+  "contact": [
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "emergency",
+              "display": "Emergency",
+              "userSelected": false
+            }
+          ],
+          "text": "Emergency Contact"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JENNIFER",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JENNIFER"
+        ],
+        "period": {
+          "start": "2013-04-26T03:53:15.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9135556789",
+          "use": "home",
+          "period": {
+            "start": "2013-03-11T08:23:51.000Z"
+          }
+        }
+      ],
+      "gender": "female",
+      "period": {
+        "start": "2017-08-01T15:38:40.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "emergency",
+              "display": "Emergency",
+              "userSelected": false
+            }
+          ],
+          "text": "Emergency Contact"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "Peters, Jennifer",
+        "family": [
+          "Peters"
+        ],
+        "given": [
+          "Jennifer"
+        ],
+        "period": {
+          "start": "2015-10-30T06:50:10.000Z"
+        }
+      },
+      "period": {
+        "start": "2015-10-30T06:50:09.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "emergency",
+              "display": "Emergency",
+              "userSelected": false
+            }
+          ],
+          "text": "Emergency Contact"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "Peters, Jennifer",
+        "family": [
+          "Peters"
+        ],
+        "given": [
+          "Jennifer"
+        ],
+        "period": {
+          "start": "2015-10-30T06:48:47.000Z"
+        }
+      },
+      "period": {
+        "start": "2015-10-30T06:48:46.000Z",
+        "end": "2015-10-30T06:50:10.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "emergency",
+              "display": "Emergency",
+              "userSelected": false
+            }
+          ],
+          "text": "Emergency Contact"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "Peters, Jennifer",
+        "family": [
+          "Peters"
+        ],
+        "given": [
+          "Jennifer"
+        ],
+        "period": {
+          "start": "2015-10-30T06:44:45.000Z"
+        }
+      },
+      "period": {
+        "start": "2015-10-30T06:44:44.000Z",
+        "end": "2015-10-30T06:48:47.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "emergency",
+              "display": "Emergency",
+              "userSelected": false
+            }
+          ],
+          "text": "Emergency Contact"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JENNIFER",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JENNIFER"
+        ],
+        "period": {
+          "start": "2014-09-16T17:37:28.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9135556789",
+          "use": "home",
+          "period": {
+            "start": "2013-03-11T08:23:51.000Z"
+          }
+        }
+      ],
+      "gender": "female",
+      "period": {
+        "start": "2014-09-16T17:37:27.000Z",
+        "end": "2017-08-01T15:38:50.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "emergency",
+              "display": "Emergency",
+              "userSelected": false
+            }
+          ],
+          "text": "Emergency Contact"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JENNIFER",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JENNIFER"
+        ],
+        "period": {
+          "start": "2014-09-16T17:36:08.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9135556789",
+          "use": "home",
+          "period": {
+            "start": "2013-03-11T08:23:51.000Z"
+          }
+        }
+      ],
+      "gender": "female",
+      "period": {
+        "start": "2014-09-16T17:36:08.000Z",
+        "end": "2014-09-16T17:37:28.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "emergency",
+              "display": "Emergency",
+              "userSelected": false
+            }
+          ],
+          "text": "Emergency Contact"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JENNIFER",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JENNIFER"
+        ],
+        "period": {
+          "start": "2014-09-16T17:25:43.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9135556789",
+          "use": "home",
+          "period": {
+            "start": "2013-03-11T08:23:51.000Z"
+          }
+        }
+      ],
+      "gender": "female",
+      "period": {
+        "start": "2014-09-16T17:25:42.000Z",
+        "end": "2014-09-16T17:36:09.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "emergency",
+              "display": "Emergency",
+              "userSelected": false
+            }
+          ],
+          "text": "Emergency Contact"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JENNIFER",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JENNIFER"
+        ],
+        "period": {
+          "start": "2014-09-16T16:36:32.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9135556789",
+          "use": "home",
+          "period": {
+            "start": "2013-03-11T08:23:51.000Z"
+          }
+        }
+      ],
+      "gender": "female",
+      "period": {
+        "start": "2014-09-16T16:36:29.000Z",
+        "end": "2014-09-16T17:25:43.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "emergency",
+              "display": "Emergency",
+              "userSelected": false
+            }
+          ],
+          "text": "Emergency Contact"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JENNIFER",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JENNIFER"
+        ],
+        "period": {
+          "start": "2013-06-05T06:35:42.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9135556789",
+          "use": "home",
+          "period": {
+            "start": "2013-03-11T08:23:51.000Z"
+          }
+        }
+      ],
+      "gender": "female",
+      "period": {
+        "start": "2014-03-05T16:30:27.000Z",
+        "end": "2014-09-16T16:36:35.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "emergency",
+              "display": "Emergency",
+              "userSelected": false
+            }
+          ],
+          "text": "Emergency Contact"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JENNIFER",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JENNIFER"
+        ],
+        "period": {
+          "start": "2013-06-05T06:23:30.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9135556789",
+          "use": "home",
+          "period": {
+            "start": "2013-03-11T08:23:51.000Z"
+          }
+        }
+      ],
+      "gender": "female",
+      "period": {
+        "start": "2013-06-05T06:25:28.000Z",
+        "end": "2013-06-05T06:35:43.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "emergency",
+              "display": "Emergency",
+              "userSelected": false
+            }
+          ],
+          "text": "Emergency Contact"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JENNIFER",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JENNIFER"
+        ],
+        "period": {
+          "start": "2013-06-05T06:19:38.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9135556789",
+          "use": "home",
+          "period": {
+            "start": "2013-03-11T08:23:51.000Z"
+          }
+        }
+      ],
+      "gender": "female",
+      "period": {
+        "start": "2013-06-05T06:19:38.000Z",
+        "end": "2013-06-05T06:20:34.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "emergency",
+              "display": "Emergency",
+              "userSelected": false
+            }
+          ],
+          "text": "Emergency Contact"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JENNIFER",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JENNIFER"
+        ],
+        "period": {
+          "start": "2013-04-26T03:53:15.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9135556789",
+          "use": "home",
+          "period": {
+            "start": "2013-03-11T08:23:51.000Z"
+          }
+        }
+      ],
+      "gender": "female",
+      "period": {
+        "start": "2013-04-26T13:05:05.000Z",
+        "end": "2013-06-05T06:20:34.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "emergency",
+              "display": "Emergency",
+              "userSelected": false
+            }
+          ],
+          "text": "Emergency Contact"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "Peters, Jennifer",
+        "family": [
+          "Peters"
+        ],
+        "given": [
+          "Jennifer"
+        ],
+        "period": {
+          "start": "2013-03-11T08:23:52.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "887766445",
+          "use": "home",
+          "period": {
+            "start": "2013-03-11T08:23:51.000Z"
+          }
+        }
+      ],
+      "gender": "female",
+      "period": {
+        "start": "2013-03-11T08:23:51.000Z",
+        "end": "2013-04-26T03:53:18.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "emergency",
+              "display": "Emergency",
+              "userSelected": false
+            }
+          ],
+          "text": "Emergency Contact"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JENNIFER",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JENNIFER"
+        ],
+        "period": {
+          "start": "2013-03-11T07:17:04.000Z"
+        }
+      },
+      "gender": "female",
+      "period": {
+        "start": "2013-03-11T07:17:03.000Z",
+        "end": "2013-03-11T08:23:53.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "emergency",
+              "display": "Emergency",
+              "userSelected": false
+            }
+          ],
+          "text": "Emergency Contact"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "Peters, Jennifer",
+        "family": [
+          "Peters"
+        ],
+        "given": [
+          "Jennifer"
+        ],
+        "period": {
+          "start": "2012-08-10T15:33:10.000Z"
+        }
+      },
+      "period": {
+        "start": "2013-03-11T07:13:49.000Z",
+        "end": "2013-03-11T07:17:04.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "emergency",
+              "display": "Emergency",
+              "userSelected": false
+            }
+          ],
+          "text": "Emergency Contact"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "Peters, Jennifer",
+        "family": [
+          "Peters"
+        ],
+        "given": [
+          "Jennifer"
+        ],
+        "period": {
+          "start": "2012-08-10T15:33:10.000Z"
+        }
+      },
+      "period": {
+        "start": "2013-02-08T17:36:02.000Z",
+        "end": "2013-03-11T07:05:08.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "emergency",
+              "display": "Emergency",
+              "userSelected": false
+            }
+          ],
+          "text": "Emergency Contact"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "Peters, Jennifer",
+        "family": [
+          "Peters"
+        ],
+        "given": [
+          "Jennifer"
+        ],
+        "period": {
+          "start": "2012-08-10T15:33:10.000Z"
+        }
+      },
+      "period": {
+        "start": "2012-08-10T15:33:10.000Z",
+        "end": "2013-01-30T14:57:01.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "LAMBERT, TIM",
+        "family": [
+          "LAMBERT"
+        ],
+        "given": [
+          "TIM"
+        ],
+        "period": {
+          "start": "2013-03-11T07:17:04.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9136453791",
+          "use": "home",
+          "period": {
+            "start": "2012-07-03T13:52:36.000Z"
+          }
+        }
+      ],
+      "address": {
+        "use": "home",
+        "text": "83929 W138th St\nOlathe, KS 66062\nUSA",
+        "line": [
+          "83929 W138th St"
+        ],
+        "city": "Olathe",
+        "district": "Johnson",
+        "state": "KS",
+        "postalCode": "66062",
+        "country": "USA",
+        "period": {
+          "start": "2012-07-03T13:52:36.000Z"
+        }
+      },
+      "gender": "male",
+      "period": {
+        "start": "2017-08-01T15:38:40.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "COOPER, TIMOTHY",
+        "family": [
+          "COOPER"
+        ],
+        "given": [
+          "TIMOTHY"
+        ],
+        "period": {
+          "start": "2013-03-11T07:17:04.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9393939993",
+          "use": "home",
+          "period": {
+            "start": "2012-07-03T16:51:34.000Z"
+          }
+        }
+      ],
+      "address": {
+        "use": "home",
+        "text": "17384 S 163rd St\nOverland Park, KS 66223\nUSA",
+        "line": [
+          "17384 S 163rd St"
+        ],
+        "city": "Overland Park",
+        "district": "Johnson",
+        "state": "KS",
+        "postalCode": "66223",
+        "country": "USA",
+        "period": {
+          "start": "2012-07-03T16:51:34.000Z"
+        }
+      },
+      "gender": "male",
+      "period": {
+        "start": "2015-11-16T16:53:16.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "Peters, Jennifer",
+        "family": [
+          "Peters"
+        ],
+        "given": [
+          "Jennifer"
+        ],
+        "period": {
+          "start": "2015-10-30T06:50:10.000Z"
+        }
+      },
+      "period": {
+        "start": "2015-10-30T06:50:09.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "Peters, Jennifer",
+        "family": [
+          "Peters"
+        ],
+        "given": [
+          "Jennifer"
+        ],
+        "period": {
+          "start": "2015-10-30T06:48:47.000Z"
+        }
+      },
+      "period": {
+        "start": "2015-10-30T06:48:46.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "Peters, Jennifer",
+        "family": [
+          "Peters"
+        ],
+        "given": [
+          "Jennifer"
+        ],
+        "period": {
+          "start": "2015-10-30T06:44:45.000Z"
+        }
+      },
+      "period": {
+        "start": "2015-10-30T06:44:44.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "SILVER, TIMOTHY",
+        "family": [
+          "SILVER"
+        ],
+        "given": [
+          "TIMOTHY"
+        ],
+        "period": {
+          "start": "2015-10-30T06:42:38.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9393939993",
+          "use": "home",
+          "period": {
+            "start": "2012-07-03T16:51:34.000Z"
+          }
+        }
+      ],
+      "address": {
+        "use": "home",
+        "text": "17384 S 163rd St\nOverland Park, KS 66223\nUSA",
+        "line": [
+          "17384 S 163rd St"
+        ],
+        "city": "Overland Park",
+        "district": "Johnson",
+        "state": "KS",
+        "postalCode": "66223",
+        "country": "USA",
+        "period": {
+          "start": "2012-07-03T16:51:34.000Z"
+        }
+      },
+      "gender": "male",
+      "period": {
+        "start": "2015-10-30T06:42:33.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "LAMBERT, TIM",
+        "family": [
+          "LAMBERT"
+        ],
+        "given": [
+          "TIM"
+        ],
+        "period": {
+          "start": "2015-10-30T06:42:38.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9136453791",
+          "use": "home",
+          "period": {
+            "start": "2012-07-03T13:52:36.000Z"
+          }
+        }
+      ],
+      "address": {
+        "use": "home",
+        "text": "83929 W138th St\nOlathe, KS 66062\nUSA",
+        "line": [
+          "83929 W138th St"
+        ],
+        "city": "Olathe",
+        "district": "Johnson",
+        "state": "KS",
+        "postalCode": "66062",
+        "country": "USA",
+        "period": {
+          "start": "2012-07-03T13:52:36.000Z"
+        }
+      },
+      "gender": "male",
+      "period": {
+        "start": "2015-10-30T06:42:33.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JOHN",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JOHN"
+        ],
+        "period": {
+          "start": "2014-09-16T17:37:28.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "8165550987",
+          "use": "home",
+          "period": {
+            "start": "2013-04-26T03:53:15.000Z"
+          }
+        }
+      ],
+      "period": {
+        "start": "2014-09-16T17:37:27.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JENNIFER",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JENNIFER"
+        ],
+        "period": {
+          "start": "2014-09-16T17:37:28.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9135556789",
+          "use": "home",
+          "period": {
+            "start": "2013-03-11T08:23:51.000Z"
+          }
+        }
+      ],
+      "gender": "female",
+      "period": {
+        "start": "2014-09-16T17:37:27.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JOHN",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JOHN"
+        ],
+        "period": {
+          "start": "2014-09-16T17:36:08.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "8165550987",
+          "use": "home",
+          "period": {
+            "start": "2013-04-26T03:53:15.000Z"
+          }
+        }
+      ],
+      "period": {
+        "start": "2014-09-16T17:36:08.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JENNIFER",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JENNIFER"
+        ],
+        "period": {
+          "start": "2014-09-16T17:36:08.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9135556789",
+          "use": "home",
+          "period": {
+            "start": "2013-03-11T08:23:51.000Z"
+          }
+        }
+      ],
+      "gender": "female",
+      "period": {
+        "start": "2014-09-16T17:36:08.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "COOPER, TIMOTHY",
+        "family": [
+          "COOPER"
+        ],
+        "given": [
+          "TIMOTHY"
+        ],
+        "period": {
+          "start": "2013-03-11T07:17:04.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9393939993",
+          "use": "home",
+          "period": {
+            "start": "2012-07-03T16:51:34.000Z"
+          }
+        }
+      ],
+      "address": {
+        "use": "home",
+        "text": "17384 S 163rd St\nOverland Park, KS 66223\nUSA",
+        "line": [
+          "17384 S 163rd St"
+        ],
+        "city": "Overland Park",
+        "district": "Johnson",
+        "state": "KS",
+        "postalCode": "66223",
+        "country": "USA",
+        "period": {
+          "start": "2012-07-03T16:51:34.000Z"
+        }
+      },
+      "gender": "male",
+      "period": {
+        "start": "2014-09-16T17:25:43.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JOHN",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JOHN"
+        ],
+        "period": {
+          "start": "2014-09-16T17:25:43.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "8165550987",
+          "use": "home",
+          "period": {
+            "start": "2013-04-26T03:53:15.000Z"
+          }
+        }
+      ],
+      "period": {
+        "start": "2014-09-16T17:25:42.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JENNIFER",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JENNIFER"
+        ],
+        "period": {
+          "start": "2014-09-16T17:25:43.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9135556789",
+          "use": "home",
+          "period": {
+            "start": "2013-03-11T08:23:51.000Z"
+          }
+        }
+      ],
+      "gender": "female",
+      "period": {
+        "start": "2014-09-16T17:25:42.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JOHN",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JOHN"
+        ],
+        "period": {
+          "start": "2013-06-05T06:19:38.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "8165550987",
+          "use": "home",
+          "period": {
+            "start": "2013-04-26T03:53:15.000Z"
+          }
+        }
+      ],
+      "period": {
+        "start": "2014-09-16T16:36:29.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "SILVER, TIMOTHY",
+        "family": [
+          "SILVER"
+        ],
+        "given": [
+          "TIMOTHY"
+        ],
+        "period": {
+          "start": "2013-06-05T06:35:42.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9393939993",
+          "use": "home",
+          "period": {
+            "start": "2012-07-03T16:51:34.000Z"
+          }
+        }
+      ],
+      "address": {
+        "use": "home",
+        "text": "17384 S 163rd St\nOverland Park, KS 66223\nUSA",
+        "line": [
+          "17384 S 163rd St"
+        ],
+        "city": "Overland Park",
+        "district": "Johnson",
+        "state": "KS",
+        "postalCode": "66223",
+        "country": "USA",
+        "period": {
+          "start": "2012-07-03T16:51:34.000Z"
+        }
+      },
+      "gender": "male",
+      "period": {
+        "start": "2014-09-16T16:36:29.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JOHN",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JOHN"
+        ],
+        "period": {
+          "start": "2014-09-16T16:36:31.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "8165550987",
+          "use": "home",
+          "period": {
+            "start": "2013-04-26T03:53:15.000Z"
+          }
+        }
+      ],
+      "period": {
+        "start": "2014-09-16T16:36:29.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JENNIFER",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JENNIFER"
+        ],
+        "period": {
+          "start": "2014-09-16T16:36:32.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9135556789",
+          "use": "home",
+          "period": {
+            "start": "2013-03-11T08:23:51.000Z"
+          }
+        }
+      ],
+      "gender": "female",
+      "period": {
+        "start": "2014-09-16T16:36:29.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "COOPER, TIMOTHY",
+        "family": [
+          "COOPER"
+        ],
+        "given": [
+          "TIMOTHY"
+        ],
+        "period": {
+          "start": "2013-03-11T07:17:04.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9393939993",
+          "use": "home",
+          "period": {
+            "start": "2012-07-03T16:51:34.000Z"
+          }
+        }
+      ],
+      "address": {
+        "use": "home",
+        "text": "17384 S 163rd St\nOverland Park, KS 66223\nUSA",
+        "line": [
+          "17384 S 163rd St"
+        ],
+        "city": "Overland Park",
+        "district": "Johnson",
+        "state": "KS",
+        "postalCode": "66223",
+        "country": "USA",
+        "period": {
+          "start": "2012-07-03T16:51:34.000Z"
+        }
+      },
+      "gender": "male",
+      "period": {
+        "start": "2014-03-05T16:30:27.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JENNIFER",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JENNIFER"
+        ],
+        "period": {
+          "start": "2013-06-05T06:35:42.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9135556789",
+          "use": "home",
+          "period": {
+            "start": "2013-03-11T08:23:51.000Z"
+          }
+        }
+      ],
+      "gender": "female",
+      "period": {
+        "start": "2014-03-05T16:21:57.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "LAMBERT, TIM",
+        "family": [
+          "LAMBERT"
+        ],
+        "given": [
+          "TIM"
+        ],
+        "period": {
+          "start": "2014-03-05T16:21:58.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9136453791",
+          "use": "home",
+          "period": {
+            "start": "2012-07-03T13:52:36.000Z"
+          }
+        }
+      ],
+      "address": {
+        "use": "home",
+        "text": "83929 W138th St\nOlathe, KS 66062\nUSA",
+        "line": [
+          "83929 W138th St"
+        ],
+        "city": "Olathe",
+        "district": "Johnson",
+        "state": "KS",
+        "postalCode": "66062",
+        "country": "USA",
+        "period": {
+          "start": "2012-07-03T13:52:36.000Z"
+        }
+      },
+      "gender": "male",
+      "period": {
+        "start": "2014-03-05T16:21:57.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "COOPER, TIMOTHY",
+        "family": [
+          "COOPER"
+        ],
+        "given": [
+          "TIMOTHY"
+        ],
+        "period": {
+          "start": "2013-03-11T07:17:04.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9393939993",
+          "use": "home",
+          "period": {
+            "start": "2012-07-03T16:51:34.000Z"
+          }
+        }
+      ],
+      "address": {
+        "use": "home",
+        "text": "17384 S 163rd St\nOverland Park, KS 66223\nUSA",
+        "line": [
+          "17384 S 163rd St"
+        ],
+        "city": "Overland Park",
+        "district": "Johnson",
+        "state": "KS",
+        "postalCode": "66223",
+        "country": "USA",
+        "period": {
+          "start": "2012-07-03T16:51:34.000Z"
+        }
+      },
+      "gender": "male",
+      "period": {
+        "start": "2013-06-05T06:35:42.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JENNIFER",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JENNIFER"
+        ],
+        "period": {
+          "start": "2013-06-05T06:35:42.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9135556789",
+          "use": "home",
+          "period": {
+            "start": "2013-03-11T08:23:51.000Z"
+          }
+        }
+      ],
+      "gender": "female",
+      "period": {
+        "start": "2013-06-05T06:35:42.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "SILVER, TIMOTHY",
+        "family": [
+          "SILVER"
+        ],
+        "given": [
+          "TIMOTHY"
+        ],
+        "period": {
+          "start": "2013-06-05T06:35:42.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9393939993",
+          "use": "home",
+          "period": {
+            "start": "2012-07-03T16:51:34.000Z"
+          }
+        }
+      ],
+      "address": {
+        "use": "home",
+        "text": "17384 S 163rd St\nOverland Park, KS 66223\nUSA",
+        "line": [
+          "17384 S 163rd St"
+        ],
+        "city": "Overland Park",
+        "district": "Johnson",
+        "state": "KS",
+        "postalCode": "66223",
+        "country": "USA",
+        "period": {
+          "start": "2012-07-03T16:51:34.000Z"
+        }
+      },
+      "gender": "male",
+      "period": {
+        "start": "2013-06-05T06:35:42.000Z",
+        "end": "2015-10-30T06:50:09.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "LAMBERT, TIM",
+        "family": [
+          "LAMBERT"
+        ],
+        "given": [
+          "TIM"
+        ],
+        "period": {
+          "start": "2013-06-05T06:25:28.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9136453791",
+          "use": "home",
+          "period": {
+            "start": "2012-07-03T13:52:36.000Z"
+          }
+        }
+      ],
+      "address": {
+        "use": "home",
+        "text": "83929 W138th St\nOlathe, KS 66062\nUSA",
+        "line": [
+          "83929 W138th St"
+        ],
+        "city": "Olathe",
+        "district": "Johnson",
+        "state": "KS",
+        "postalCode": "66062",
+        "country": "USA",
+        "period": {
+          "start": "2012-07-03T13:52:36.000Z"
+        }
+      },
+      "gender": "male",
+      "period": {
+        "start": "2013-06-05T06:25:28.000Z",
+        "end": "2015-10-30T06:50:09.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "COOPER, TIMOTHY",
+        "family": [
+          "COOPER"
+        ],
+        "given": [
+          "TIMOTHY"
+        ],
+        "period": {
+          "start": "2013-03-11T07:17:04.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9393939993",
+          "use": "home",
+          "period": {
+            "start": "2012-07-03T16:51:34.000Z"
+          }
+        }
+      ],
+      "address": {
+        "use": "home",
+        "text": "17384 S 163rd St\nOverland Park, KS 66223\nUSA",
+        "line": [
+          "17384 S 163rd St"
+        ],
+        "city": "Overland Park",
+        "district": "Johnson",
+        "state": "KS",
+        "postalCode": "66223",
+        "country": "USA",
+        "period": {
+          "start": "2012-07-03T16:51:34.000Z"
+        }
+      },
+      "gender": "male",
+      "period": {
+        "start": "2013-06-05T06:23:30.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JENNIFER",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JENNIFER"
+        ],
+        "period": {
+          "start": "2013-06-05T06:20:34.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9135556789",
+          "use": "home",
+          "period": {
+            "start": "2013-03-11T08:23:51.000Z"
+          }
+        }
+      ],
+      "gender": "female",
+      "period": {
+        "start": "2013-06-05T06:23:30.000Z",
+        "end": "2015-10-30T06:50:09.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "SILVER, TIMOTHY",
+        "family": [
+          "SILVER"
+        ],
+        "given": [
+          "TIMOTHY"
+        ],
+        "period": {
+          "start": "2013-06-05T06:23:30.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9393939993",
+          "use": "home",
+          "period": {
+            "start": "2012-07-03T16:51:34.000Z"
+          }
+        }
+      ],
+      "address": {
+        "use": "home",
+        "text": "17384 S 163rd St\nOverland Park, KS 66223\nUSA",
+        "line": [
+          "17384 S 163rd St"
+        ],
+        "city": "Overland Park",
+        "district": "Johnson",
+        "state": "KS",
+        "postalCode": "66223",
+        "country": "USA",
+        "period": {
+          "start": "2012-07-03T16:51:34.000Z"
+        }
+      },
+      "gender": "male",
+      "period": {
+        "start": "2013-06-05T06:23:30.000Z",
+        "end": "2015-10-30T06:50:09.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JENNIFER",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JENNIFER"
+        ],
+        "period": {
+          "start": "2013-06-05T06:23:30.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9135556789",
+          "use": "home",
+          "period": {
+            "start": "2013-03-11T08:23:51.000Z"
+          }
+        }
+      ],
+      "gender": "female",
+      "period": {
+        "start": "2013-06-05T06:23:30.000Z",
+        "end": "2013-06-05T06:25:28.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "COOPER, TIMOTHY",
+        "family": [
+          "COOPER"
+        ],
+        "given": [
+          "TIMOTHY"
+        ],
+        "period": {
+          "start": "2013-03-11T07:17:04.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9393939993",
+          "use": "home",
+          "period": {
+            "start": "2012-07-03T16:51:34.000Z"
+          }
+        }
+      ],
+      "address": {
+        "use": "home",
+        "text": "17384 S 163rd St\nOverland Park, KS 66223\nUSA",
+        "line": [
+          "17384 S 163rd St"
+        ],
+        "city": "Overland Park",
+        "district": "Johnson",
+        "state": "KS",
+        "postalCode": "66223",
+        "country": "USA",
+        "period": {
+          "start": "2012-07-03T16:51:34.000Z"
+        }
+      },
+      "gender": "male",
+      "period": {
+        "start": "2013-06-05T06:20:34.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "SILVER, TIMOTHY",
+        "family": [
+          "SILVER"
+        ],
+        "given": [
+          "TIMOTHY"
+        ],
+        "period": {
+          "start": "2013-06-05T06:20:34.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9393939993",
+          "use": "home",
+          "period": {
+            "start": "2012-07-03T16:51:34.000Z"
+          }
+        }
+      ],
+      "address": {
+        "use": "home",
+        "text": "17384 S 163rd St\nOverland Park, KS 66223\nUSA",
+        "line": [
+          "17384 S 163rd St"
+        ],
+        "city": "Overland Park",
+        "district": "Johnson",
+        "state": "KS",
+        "postalCode": "66223",
+        "country": "USA",
+        "period": {
+          "start": "2012-07-03T16:51:34.000Z"
+        }
+      },
+      "gender": "male",
+      "period": {
+        "start": "2013-06-05T06:20:34.000Z",
+        "end": "2015-10-30T06:50:09.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JENNIFER",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JENNIFER"
+        ],
+        "period": {
+          "start": "2013-06-05T06:20:34.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9135556789",
+          "use": "home",
+          "period": {
+            "start": "2013-03-11T08:23:51.000Z"
+          }
+        }
+      ],
+      "gender": "female",
+      "period": {
+        "start": "2013-06-05T06:20:34.000Z",
+        "end": "2013-06-05T06:23:31.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JOHN",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JOHN"
+        ],
+        "period": {
+          "start": "2013-06-05T06:19:38.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "8165550987",
+          "use": "home",
+          "period": {
+            "start": "2013-04-26T03:53:15.000Z"
+          }
+        }
+      ],
+      "period": {
+        "start": "2013-06-05T06:19:37.000Z",
+        "end": "2015-10-30T06:50:09.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JENNIFER",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JENNIFER"
+        ],
+        "period": {
+          "start": "2013-06-05T06:19:38.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9135556789",
+          "use": "home",
+          "period": {
+            "start": "2013-03-11T08:23:51.000Z"
+          }
+        }
+      ],
+      "gender": "female",
+      "period": {
+        "start": "2013-06-05T06:19:37.000Z",
+        "end": "2013-06-05T06:20:34.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "problem, patfield",
+        "family": [
+          "problem"
+        ],
+        "given": [
+          "patfield"
+        ],
+        "period": {
+          "start": "2013-06-03T06:42:19.000Z"
+        }
+      },
+      "period": {
+        "start": "2013-06-03T09:11:51.000Z",
+        "end": "2015-10-30T06:50:09.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JOHN",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JOHN"
+        ],
+        "period": {
+          "start": "2013-04-26T03:53:15.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "8165550987",
+          "use": "home",
+          "period": {
+            "start": "2013-04-26T03:53:15.000Z"
+          }
+        }
+      ],
+      "period": {
+        "start": "2013-04-26T13:05:05.000Z",
+        "end": "2013-06-05T06:20:34.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JENNIFER",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JENNIFER"
+        ],
+        "period": {
+          "start": "2013-04-26T03:53:15.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9135556789",
+          "use": "home",
+          "period": {
+            "start": "2013-03-11T08:23:51.000Z"
+          }
+        }
+      ],
+      "gender": "female",
+      "period": {
+        "start": "2013-04-26T13:05:05.000Z",
+        "end": "2013-06-05T06:20:34.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JOHN",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JOHN"
+        ],
+        "period": {
+          "start": "2013-04-26T03:53:15.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "8165550987",
+          "use": "home",
+          "period": {
+            "start": "2013-04-26T03:53:15.000Z"
+          }
+        }
+      ],
+      "period": {
+        "start": "2013-04-26T12:52:34.000Z",
+        "end": "2013-04-26T13:05:05.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JENNIFER",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JENNIFER"
+        ],
+        "period": {
+          "start": "2013-04-26T03:53:15.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9135556789",
+          "use": "home",
+          "period": {
+            "start": "2013-03-11T08:23:51.000Z"
+          }
+        }
+      ],
+      "gender": "female",
+      "period": {
+        "start": "2013-04-26T12:52:34.000Z",
+        "end": "2013-04-26T13:05:05.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "LAMBERT, TIM",
+        "family": [
+          "LAMBERT"
+        ],
+        "given": [
+          "TIM"
+        ],
+        "period": {
+          "start": "2013-03-11T07:17:04.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9136453791",
+          "use": "home",
+          "period": {
+            "start": "2012-07-03T13:52:36.000Z"
+          }
+        }
+      ],
+      "address": {
+        "use": "home",
+        "text": "83929 W138th St\nOlathe, KS 66062\nUSA",
+        "line": [
+          "83929 W138th St"
+        ],
+        "city": "Olathe",
+        "district": "Johnson",
+        "state": "KS",
+        "postalCode": "66062",
+        "country": "USA",
+        "period": {
+          "start": "2012-07-03T13:52:36.000Z"
+        }
+      },
+      "gender": "male",
+      "period": {
+        "start": "2013-04-26T04:01:25.000Z",
+        "end": "2015-10-30T06:50:09.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JOHN",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JOHN"
+        ],
+        "period": {
+          "start": "2012-08-10T15:33:10.000Z"
+        }
+      },
+      "period": {
+        "start": "2013-04-26T03:53:15.000Z",
+        "end": "2015-10-30T06:50:09.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "SILVER, TIMOTHY",
+        "family": [
+          "SILVER"
+        ],
+        "given": [
+          "TIMOTHY"
+        ],
+        "period": {
+          "start": "2013-04-26T03:53:16.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9393939993",
+          "use": "home",
+          "period": {
+            "start": "2012-07-03T16:51:34.000Z"
+          }
+        }
+      ],
+      "address": {
+        "use": "home",
+        "text": "17384 S 163rd St\nOverland Park, KS 66223\nUSA",
+        "line": [
+          "17384 S 163rd St"
+        ],
+        "city": "Overland Park",
+        "district": "Johnson",
+        "state": "KS",
+        "postalCode": "66223",
+        "country": "USA",
+        "period": {
+          "start": "2012-07-03T16:51:34.000Z"
+        }
+      },
+      "gender": "male",
+      "period": {
+        "start": "2013-04-26T03:53:15.000Z",
+        "end": "2015-10-30T06:50:09.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "LAMBERT, TIM",
+        "family": [
+          "LAMBERT"
+        ],
+        "given": [
+          "TIM"
+        ],
+        "period": {
+          "start": "2013-04-26T03:53:16.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9136453791",
+          "use": "home",
+          "period": {
+            "start": "2012-07-03T13:52:36.000Z"
+          }
+        }
+      ],
+      "address": {
+        "use": "home",
+        "text": "83929 W138th St\nOlathe, KS 66062\nUSA",
+        "line": [
+          "83929 W138th St"
+        ],
+        "city": "Olathe",
+        "district": "Johnson",
+        "state": "KS",
+        "postalCode": "66062",
+        "country": "USA",
+        "period": {
+          "start": "2012-07-03T13:52:36.000Z"
+        }
+      },
+      "gender": "male",
+      "period": {
+        "start": "2013-04-26T03:53:15.000Z",
+        "end": "2015-10-30T06:50:09.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "SILVER",
+        "family": [
+          "SILVER"
+        ],
+        "given": [
+          "TIMOTHY"
+        ],
+        "period": {
+          "start": "2013-03-11T08:23:53.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9393939993",
+          "use": "home",
+          "period": {
+            "start": "2012-07-03T16:51:34.000Z"
+          }
+        }
+      ],
+      "address": {
+        "use": "home",
+        "text": "17384 S 163rd St\nOverland Park, KS 66223\nUSA",
+        "line": [
+          "17384 S 163rd St"
+        ],
+        "city": "Overland Park",
+        "district": "Johnson",
+        "state": "KS",
+        "postalCode": "66223",
+        "country": "USA",
+        "period": {
+          "start": "2012-07-03T16:51:34.000Z"
+        }
+      },
+      "gender": "male",
+      "period": {
+        "start": "2013-04-26T03:53:15.000Z",
+        "end": "2013-04-26T04:01:25.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "COOPER, TIMOTHY",
+        "family": [
+          "COOPER"
+        ],
+        "given": [
+          "TIMOTHY"
+        ],
+        "period": {
+          "start": "2013-03-11T07:17:04.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9393939993",
+          "use": "home",
+          "period": {
+            "start": "2012-07-03T16:51:34.000Z"
+          }
+        }
+      ],
+      "address": {
+        "use": "home",
+        "text": "17384 S 163rd St\nOverland Park, KS 66223\nUSA",
+        "line": [
+          "17384 S 163rd St"
+        ],
+        "city": "Overland Park",
+        "district": "Johnson",
+        "state": "KS",
+        "postalCode": "66223",
+        "country": "USA",
+        "period": {
+          "start": "2012-07-03T16:51:34.000Z"
+        }
+      },
+      "gender": "male",
+      "period": {
+        "start": "2013-04-12T05:30:00.000Z",
+        "end": "2015-10-30T06:50:09.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "LAMBERT, TIM",
+        "family": [
+          "LAMBERT"
+        ],
+        "given": [
+          "TIM"
+        ],
+        "period": {
+          "start": "2013-03-11T07:17:04.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9136453791",
+          "use": "home",
+          "period": {
+            "start": "2012-07-03T13:52:36.000Z"
+          }
+        }
+      ],
+      "address": {
+        "use": "home",
+        "text": "83929 W138th St\nOlathe, KS 66062\nUSA",
+        "line": [
+          "83929 W138th St"
+        ],
+        "city": "Olathe",
+        "district": "Johnson",
+        "state": "KS",
+        "postalCode": "66062",
+        "country": "USA",
+        "period": {
+          "start": "2012-07-03T13:52:36.000Z"
+        }
+      },
+      "gender": "male",
+      "period": {
+        "start": "2013-03-11T08:35:29.000Z",
+        "end": "2015-10-30T06:50:09.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "LAMBERT, TIM",
+        "family": [
+          "LAMBERT"
+        ],
+        "given": [
+          "TIM"
+        ],
+        "period": {
+          "start": "2013-03-11T08:23:53.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9136453791",
+          "use": "home",
+          "period": {
+            "start": "2012-07-03T13:52:36.000Z"
+          }
+        }
+      ],
+      "address": {
+        "use": "home",
+        "text": "83929 W138th St\nOlathe, KS 66062\nUSA",
+        "line": [
+          "83929 W138th St"
+        ],
+        "city": "Olathe",
+        "district": "Johnson",
+        "state": "KS",
+        "postalCode": "66062",
+        "country": "USA",
+        "period": {
+          "start": "2012-07-03T13:52:36.000Z"
+        }
+      },
+      "gender": "male",
+      "period": {
+        "start": "2013-03-11T08:23:51.000Z",
+        "end": "2015-10-30T06:50:09.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "Peters, Jennifer",
+        "family": [
+          "Peters"
+        ],
+        "given": [
+          "Jennifer"
+        ],
+        "period": {
+          "start": "2013-03-11T08:23:52.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "887766445",
+          "use": "home",
+          "period": {
+            "start": "2013-03-11T08:23:51.000Z"
+          }
+        }
+      ],
+      "gender": "female",
+      "period": {
+        "start": "2013-03-11T08:23:51.000Z",
+        "end": "2013-04-26T04:01:25.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JENNIFER",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JENNIFER"
+        ],
+        "period": {
+          "start": "2013-03-11T07:17:04.000Z"
+        }
+      },
+      "gender": "female",
+      "period": {
+        "start": "2013-03-11T07:17:03.000Z",
+        "end": "2015-10-30T06:50:09.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "COOPER, TIMOTHY",
+        "family": [
+          "COOPER"
+        ],
+        "given": [
+          "TIMOTHY"
+        ],
+        "period": {
+          "start": "2013-03-11T07:17:04.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9393939993",
+          "use": "home",
+          "period": {
+            "start": "2012-07-03T16:51:34.000Z"
+          }
+        }
+      ],
+      "address": {
+        "use": "home",
+        "text": "17384 S 163rd St\nOverland Park, KS 66223\nUSA",
+        "line": [
+          "17384 S 163rd St"
+        ],
+        "city": "Overland Park",
+        "district": "Johnson",
+        "state": "KS",
+        "postalCode": "66223",
+        "country": "USA",
+        "period": {
+          "start": "2012-07-03T16:51:34.000Z"
+        }
+      },
+      "gender": "male",
+      "period": {
+        "start": "2013-03-11T07:17:03.000Z",
+        "end": "2015-10-30T06:50:09.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "LAMBERT, TIM",
+        "family": [
+          "LAMBERT"
+        ],
+        "given": [
+          "TIM"
+        ],
+        "period": {
+          "start": "2013-03-11T07:17:04.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9136453791",
+          "use": "home",
+          "period": {
+            "start": "2012-07-03T13:52:36.000Z"
+          }
+        }
+      ],
+      "address": {
+        "use": "home",
+        "text": "83929 W138th St\nOlathe, KS 66062\nUSA",
+        "line": [
+          "83929 W138th St"
+        ],
+        "city": "Olathe",
+        "district": "Johnson",
+        "state": "KS",
+        "postalCode": "66062",
+        "country": "USA",
+        "period": {
+          "start": "2012-07-03T13:52:36.000Z"
+        }
+      },
+      "gender": "male",
+      "period": {
+        "start": "2013-03-11T07:17:03.000Z",
+        "end": "2015-10-30T06:50:09.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Family Member"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "Peters, Jennifer",
+        "family": [
+          "Peters"
+        ],
+        "given": [
+          "Jennifer"
+        ],
+        "period": {
+          "start": "2012-08-10T15:33:10.000Z"
+        }
+      },
+      "period": {
+        "start": "2013-02-08T17:29:03.000Z",
+        "end": "2015-10-30T06:50:09.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "guardian",
+              "display": "Guardian",
+              "userSelected": false
+            }
+          ],
+          "text": "Guardian"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "COOPER, TIMOTHY",
+        "family": [
+          "COOPER"
+        ],
+        "given": [
+          "TIMOTHY"
+        ],
+        "period": {
+          "start": "2013-03-11T07:17:04.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "9393939993",
+          "use": "home",
+          "period": {
+            "start": "2012-07-03T16:51:34.000Z"
+          }
+        }
+      ],
+      "address": {
+        "use": "home",
+        "text": "17384 S 163rd St\nOverland Park, KS 66223\nUSA",
+        "line": [
+          "17384 S 163rd St"
+        ],
+        "city": "Overland Park",
+        "district": "Johnson",
+        "state": "KS",
+        "postalCode": "66223",
+        "country": "USA",
+        "period": {
+          "start": "2012-07-03T16:51:34.000Z"
+        }
+      },
+      "gender": "male",
+      "period": {
+        "start": "2013-04-26T04:01:26.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "guardian",
+              "display": "Guardian",
+              "userSelected": false
+            }
+          ],
+          "text": "Guardian"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "Peters, Smith",
+        "family": [
+          "Peters"
+        ],
+        "given": [
+          "Smith"
+        ],
+        "period": {
+          "start": "2013-03-11T07:05:07.000Z"
+        }
+      },
+      "period": {
+        "start": "2013-03-11T07:17:03.000Z",
+        "end": "2013-03-11T08:23:53.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Next of Kin"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JOHN",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JOHN"
+        ],
+        "period": {
+          "start": "2013-04-26T03:53:15.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "8165550987",
+          "use": "home",
+          "period": {
+            "start": "2013-04-26T03:53:15.000Z"
+          }
+        }
+      ],
+      "period": {
+        "start": "2017-08-01T15:38:40.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Next of Kin"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JOHN",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JOHN"
+        ],
+        "period": {
+          "start": "2014-09-16T17:37:28.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "8165550987",
+          "use": "home",
+          "period": {
+            "start": "2013-04-26T03:53:15.000Z"
+          }
+        }
+      ],
+      "period": {
+        "start": "2017-06-28T17:26:34.000Z",
+        "end": "2017-08-01T15:38:49.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Next of Kin"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JOHN",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JOHN"
+        ],
+        "period": {
+          "start": "2012-08-10T15:33:10.000Z"
+        }
+      },
+      "period": {
+        "start": "2015-10-30T06:44:44.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Next of Kin"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JOHN",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JOHN"
+        ],
+        "period": {
+          "start": "2013-06-05T06:19:38.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "8165550987",
+          "use": "home",
+          "period": {
+            "start": "2013-04-26T03:53:15.000Z"
+          }
+        }
+      ],
+      "period": {
+        "start": "2015-10-30T06:42:33.000Z",
+        "end": "2017-06-28T17:26:37.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Next of Kin"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JOHN",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JOHN"
+        ],
+        "period": {
+          "start": "2014-09-16T17:37:28.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "8165550987",
+          "use": "home",
+          "period": {
+            "start": "2013-04-26T03:53:15.000Z"
+          }
+        }
+      ],
+      "period": {
+        "start": "2014-09-16T17:37:27.000Z",
+        "end": "2015-10-30T06:42:40.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Next of Kin"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JOHN",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JOHN"
+        ],
+        "period": {
+          "start": "2014-09-16T17:36:08.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "8165550987",
+          "use": "home",
+          "period": {
+            "start": "2013-04-26T03:53:15.000Z"
+          }
+        }
+      ],
+      "period": {
+        "start": "2014-09-16T17:36:08.000Z",
+        "end": "2014-09-16T17:37:28.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Next of Kin"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JOHN",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JOHN"
+        ],
+        "period": {
+          "start": "2014-09-16T17:25:43.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "8165550987",
+          "use": "home",
+          "period": {
+            "start": "2013-04-26T03:53:15.000Z"
+          }
+        }
+      ],
+      "period": {
+        "start": "2014-09-16T17:25:42.000Z",
+        "end": "2014-09-16T17:36:09.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Next of Kin"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JOHN",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JOHN"
+        ],
+        "period": {
+          "start": "2014-09-16T16:36:31.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "8165550987",
+          "use": "home",
+          "period": {
+            "start": "2013-04-26T03:53:15.000Z"
+          }
+        }
+      ],
+      "period": {
+        "start": "2014-09-16T16:36:29.000Z",
+        "end": "2014-09-16T17:25:43.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Next of Kin"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JOHN",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JOHN"
+        ],
+        "period": {
+          "start": "2013-06-05T06:19:38.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "8165550987",
+          "use": "home",
+          "period": {
+            "start": "2013-04-26T03:53:15.000Z"
+          }
+        }
+      ],
+      "period": {
+        "start": "2014-03-05T16:30:27.000Z",
+        "end": "2014-09-16T16:36:35.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Next of Kin"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JOHN",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JOHN"
+        ],
+        "period": {
+          "start": "2013-04-26T03:53:15.000Z"
+        }
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "8165550987",
+          "use": "home",
+          "period": {
+            "start": "2013-04-26T03:53:15.000Z"
+          }
+        }
+      ],
+      "period": {
+        "start": "2013-04-26T13:05:05.000Z",
+        "end": "2013-06-05T06:20:34.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Next of Kin"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JOHN",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JOHN"
+        ],
+        "period": {
+          "start": "2012-08-10T15:33:10.000Z"
+        }
+      },
+      "period": {
+        "start": "2013-03-11T08:23:51.000Z",
+        "end": "2013-04-26T03:53:18.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Next of Kin"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JOHN",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JOHN"
+        ],
+        "period": {
+          "start": "2012-08-10T15:33:10.000Z"
+        }
+      },
+      "period": {
+        "start": "2013-02-08T17:36:02.000Z",
+        "end": "2013-03-11T07:05:08.000Z"
+      }
+    },
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "family",
+              "display": "Family",
+              "userSelected": false
+            }
+          ],
+          "text": "Next of Kin"
+        }
+      ],
+      "name": {
+        "use": "official",
+        "text": "PETERS, JOHN",
+        "family": [
+          "PETERS"
+        ],
+        "given": [
+          "JOHN"
+        ],
+        "period": {
+          "start": "2012-08-10T15:33:10.000Z"
+        }
+      },
+      "period": {
+        "start": "2012-08-10T15:33:10.000Z",
+        "end": "2013-01-30T14:57:00.000Z"
+      }
+    }
+  ],
+  "communication": [
+    {
+      "language": {
+        "coding": [
+          {
+            "system": "urn:ietf:bcp:47",
+            "code": "en",
+            "display": "English",
+            "userSelected": false
+          }
+        ],
+        "text": "English"
+      },
+      "preferred": true
+    }
+  ],
+  "careProvider": [
+    {
+      "reference": "Practitioner/1316022",
+      "display": "Schneider, Chuck"
+    },
+    {
+      "reference": "Practitioner/1416008",
+      "display": "Marlow, Robert"
+    },
+    {
+      "reference": "Practitioner/1376007",
+      "display": "Physician, PowerChartTouch"
+    },
+    {
+      "reference": "Practitioner/1272007",
+      "display": "Test, Physician4"
+    },
+    {
+      "reference": "Practitioner/1314014",
+      "display": "McCready, Tim"
+    }
+  ]
+}

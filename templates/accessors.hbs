@@ -1,0 +1,58 @@
+{{#params}}
+  {{#if primitive}}
+
+  get {{name}}() {
+    return this[_values].{{name}};
+  }
+
+  set {{name}}(value) {
+    return this[_values].{{name}} = value;
+  }
+  {{else}}
+    {{#if array}}
+
+  get {{name}}() {
+    if (!isPresent(this[_values].{{name}})) {
+      {{#if anyResource}}
+      this[_values].{{name}} = ArrayProxy();
+      {{else}}
+      const klass = require('./{{type}}');
+      this[_values].{{name}} = ArrayProxy(klass);
+      {{/if}}
+    }
+    return this[_values].{{name}};
+  }
+
+  set {{name}}(value) {
+      {{#if anyResource}}
+    this[_values].{{name}} = ArrayProxy();
+      {{else}}
+    const klass = require('./{{type}}');
+    this[_values].{{name}} = ArrayProxy({{#unless anyResource}}klass{{/unless}});
+      {{/if}}
+    value.forEach(entry => this[_values].{{name}}.push(entry));
+    return this[_values].{{name}};
+  }
+    {{else}}
+
+  get {{name}}() {
+      {{#unless anyResource}}
+    if (!isPresent(this[_values].{{name}})) {
+      const klass = require('./{{type}}');
+      this[_values].{{name}} = new klass();
+    }
+      {{/unless}}
+    return this[_values].{{name}};
+  }
+
+  set {{name}}(value) {
+      {{#if anyResource}}
+    const klass = loadResource(value.resourceType);
+      {{else}}
+    const klass = require('./{{type}}');
+      {{/if}}
+    return this[_values].{{name}} = new klass(value);
+  }
+    {{/if}}
+  {{/if}}
+{{/params}}

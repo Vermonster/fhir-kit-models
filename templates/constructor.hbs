@@ -1,0 +1,21 @@
+  constructor(values = {}) {
+{{#if superClass}}
+    super();
+{{/if}}
+    this[_values] = {};
+{{#if isResource}}
+    this.resourceType = '{{className}}';
+{{/if}}
+{{#if superClass}}
+    if (values instanceof {{className}}{{#if superClass}} ||
+      values instanceof {{superClass}}{{/if}}) {
+{{else}}
+    if (values instanceof {{className}}) {
+{{/if}}
+      for (const [key, value] of values) {
+        this[key] = value;
+      }
+    } else {
+      Object.entries(values).forEach(([key, value]) => this[key] = value);
+    }
+  }

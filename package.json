@@ -1,0 +1,22 @@
+{
+  "name": "fhir-kit-models",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "git@github.com:Vermonster/fhir-kit-models.git",
+  "author": "Stephen MacVicar <smacvicar@vermonster.com>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint .",
+    "generate": "node -e 'require(\"./lib/generate\").createClasses()'",
+    "test": "mocha test --reporter spec"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.12.0",
+    "handlebars": "^4.0.11",
+    "mocha": "^5.1.1",
+    "mock-require": "^3.0.2"
+  }
+}

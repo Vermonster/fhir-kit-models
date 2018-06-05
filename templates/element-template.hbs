@@ -1,0 +1,9 @@
+{{> includes }}
+
+class {{className}}{{#if superClass}} extends {{superClass}}{{/if}} {
+{{> constructor }}
+{{> accessors }}
+{{> methods }}
+}
+
+module.exports = {{className}};

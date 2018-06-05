@@ -1,0 +1,32 @@
+{{#unless superClass}}
+
+  * [Symbol.iterator]() {
+    const presentEntries = Object.entries(this[_values])
+      .filter(([_key, value]) => isPresent(value));
+    for (const entry of presentEntries) {
+      yield entry;
+    }
+  }
+
+  toObject() {
+    const object = {};
+    for (const [key, value] of Object.entries(this[_values])) {
+      if (isPresent(value)) {
+        if (value.toObject) {
+          object[key] = value.toObject();
+        } else {
+          object[key] = value;
+        }
+      }
+    }
+    return object;
+  }
+
+  keys() {
+    return Object.keys(this[_values]);
+  }
+
+  entries() {
+    return Object.entries(this[_values]);
+  }
+{{/unless}}

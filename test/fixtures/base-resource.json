@@ -1,0 +1,35 @@
+{
+  "$ref": "#/definitions/BaseResource",
+  "definitions": {
+    "BaseResource": {
+      "allOf": [
+        {
+          "description": "Base definition for all elements in a resource.",
+          "properties": {
+            "resourceType": {
+              "type": "string"
+            },
+            "primitive": {
+              "type": "string"
+            },
+            "complex": {
+              "$ref": "base-resource.schema.json#/definitions/BaseResource"
+            },
+            "complexArray": {
+              "type": "array",
+              "items": {
+                "$ref": "base-resource.schema.json#/definitions/BaseResource"
+              }
+            },
+            "primitiveArray": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
