@@ -8,7 +8,7 @@ const loadResourceTemplates = () => {
   const baseTemplateFilename = 'element-template.hbs';
   const templateFileNames = fs.readdirSync(baseTemplatepath);
   templateFileNames.forEach(filename => {
-    if (filename === baseTemplateFilename) {
+    if (filename === baseTemplateFilename || filename === 'index.hbs') {
       return;
     }
     const template = fs.readFileSync(normalize(`${baseTemplatepath}/${filename}`), 'utf8');
