@@ -1,5 +1,7 @@
 const fs = require('fs');
 const { normalize } = require('path');
+const rimraf = require('rimraf');
+
 const Handlebars = require('handlebars'); // eslint-disable-line import/no-extraneous-dependencies
 
 const baseTemplatepath = normalize(`${__dirname}/templates`);
@@ -36,9 +38,6 @@ const propertyParams = ([name, properties]) => {
 
 const renderClass = (params, outputPath, template) => {
   const output = `${template(params)}\n`;
-  if (!fs.existsSync(outputPath)) {
-    fs.mkdirSync(outputPath);
-  }
   fs.writeFileSync(normalize(`${outputPath}/${params.className}.js`), output);
 };
 
@@ -49,7 +48,8 @@ const classParams = definition => {
 
 const generateClass = (schema, outputPath, template) => {
   for (const [className, definition] of Object.entries(schema.definitions)) {
-    console.log(`Generating: ${className}.js`); // eslint-disable-line no-console
+    const camelCaseClassName = className.replace('_', '');
+    console.log(`Generating: ${camelCaseClassName}.js`); // eslint-disable-line no-console
     let superClass;
     const definitionReference = definition.allOf[0].$ref;
     if (definitionReference) {
@@ -61,9 +61,10 @@ const generateClass = (schema, outputPath, template) => {
     const usesIsPresent = !superClass || params.some(param => !param.primitive);
     const usesLoadResource = params.some(param => param.anyResource && !param.array);
     const isResource = params.some(param => param.name === 'resourceType');
+
     renderClass(
       {
-        className: className.replace('_', ''),
+        className: camelCaseClassName,
         superClass: superClass && superClass.replace('_', ''),
         usesArrayProxy,
         usesIsPresent,
@@ -77,56 +78,57 @@ const generateClass = (schema, outputPath, template) => {
   }
 };
 
-
-const generateEntryPont = (resouceFileNames, destinationPath) => {
+const generateEntryPont = destinationPath => {
+  const resourceFileNames = fs.readdirSync(normalize(`${destinationPath}`)).map(fileName => fileName.slice(0, fileName.indexOf('.')));
   const entryPointTemplate = Handlebars.compile(fs.readFileSync(normalize(`${baseTemplatepath}/index.hbs`), 'utf8'));
-  const resourceFileNames = resouceFileNames.map(fileName => fileName.slice(0, fileName.indexOf('.')));
+  const output = entryPointTemplate({ resourceFileNames });
 
-  const output = entryPointTemplate({ resourceFileNames: resourceFileNames });
-
-  fs.writeFileSync(normalize(`${destinationPath}/index.js`), output);
   console.log('Generating: index.js'); // eslint-disable-line no-console
+  fs.writeFileSync(normalize(`${destinationPath}/index.js`), output);
 };
 
-const generateClasses = (schemaFileNames, outputPath, template) => {
-  const selectedSchemaFileNames = [];
-  for (const schemaFileName of schemaFileNames) {
-    if (schemaFileName === 'ResourceList.schema.json' || schemaFileName === 'fhir.schema.json') {
-      continue;
-    }
-    const schema = JSON.parse(fs.readFileSync(normalize(`${__dirname}/../resource-schemas/${schemaFileName}`), 'utf8'));
-    generateClass(schema, outputPath, template);
-    selectedSchemaFileNames.push(schemaFileName);
-  }
-  generateEntryPont(selectedSchemaFileNames, outputPath);
-};
-
-const copyStaticFiles = destinationPath => {
-  const staticFiles = ['helpers.js', 'ArrayProxy.js'];
+const copyFilesSync = (staticFiles, destinationPath) => {
   const sourcePath = normalize(`${__dirname}/../src`);
 
   staticFiles.forEach(file => {
-    fs.copyFile(`${sourcePath}/${file}`, `${destinationPath}/${file}`, err => {
+    fs.copyFileSync(`${sourcePath}/${file}`, `${destinationPath}/${file}`, err => {
       if (err) throw err;
       console.log(`Generating: ${file}`); // eslint-disable-line no-console
     });
   });
 };
 
+const generateClasses = (schemaFileNames, outputPath, template) => {
+  for (const schemaFileName of schemaFileNames) {
+    if (schemaFileName !== 'ResourceList.schema.json' && schemaFileName !== 'fhir.schema.json') {
+      const schema = JSON.parse(fs.readFileSync(normalize(`${__dirname}/../resource-schemas/${schemaFileName}`), 'utf8'));
+      generateClass(schema, outputPath, template);
+    }
+  }
+};
+
+const initializeDirectory = outputPath => {
+  rimraf.sync(outputPath);
+  fs.mkdirSync(outputPath);
+};
 
 const createClasses = () => {
-  // TODO Consider movingg resourceTemplate to generateEntryPont
+  // TODO Consider moving resourceTemplate to generateEntryPont
   const resourceTemplate = loadResourceTemplates();
   const destinationPath = normalize(`${__dirname}/../dist`);
   const schemaFileNames = fs.readdirSync(normalize(`${__dirname}/../resource-schemas`));
 
+  initializeDirectory(destinationPath);
   generateClasses(schemaFileNames, destinationPath, resourceTemplate);
-  copyStaticFiles(destinationPath);
+  generateEntryPont(destinationPath);
+  copyFilesSync(['helpers.js', 'ArrayProxy.js'], destinationPath);
 };
 
 module.exports = {
   loadResourceTemplates,
   generateClass,
-  copyStaticFiles,
+  initializeDirectory,
+  generateEntryPont,
+  copyFilesSync,
   createClasses,
 };
