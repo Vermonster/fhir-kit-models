@@ -2,7 +2,7 @@
 const { expect } = require('chai');
 const mock = require('mock-require');
 
-const { isPresent, loadResource } = require('../lib/helpers');
+const { isPresent, loadResource } = require('../src/helpers');
 
 describe('isPresent', function () {
   it('returns true for non-undefined primitives', function () {
