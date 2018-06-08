@@ -4,17 +4,17 @@ const mock = require('mock-require');
 const fs = require('fs');
 const path = require('path');
 
-const { generateClass, loadResourceTemplates } = require('../src/generate');
+const { generateClass, loadTemplates } = require('../lib/generate');
 
 describe('Generated Resources', function () {
   let BaseResource;
   let template;
 
   before(function () {
-    mock('../ArrayProxy', require('../src/ArrayProxy'));
-    mock('../helpers', require('../src/helpers'));
+    mock('../ArrayProxy', require('../lib/ArrayProxy'));
+    mock('../helpers', require('../lib/helpers'));
 
-    template = loadResourceTemplates();
+    template = loadTemplates();
     const schema = JSON.parse(fs.readFileSync(path.normalize(`${__dirname}/fixtures/base-resource.json`)));
     generateClass(schema, 'tmp', template);
     BaseResource = require('../tmp/BaseResource');
