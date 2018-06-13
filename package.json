@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint .",
-    "prepublish": "yarn lint && yarn test && yarn build",
+    "prepublish": "yarn build && yarn test && yarn lint",
     "sandbox": "yarn build && node inspect example",
     "build": "node -e 'require(\"./src/generate\").createClasses()'",
     "test": "mocha test --reporter spec"
