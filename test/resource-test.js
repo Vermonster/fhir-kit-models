@@ -1,9 +1,4 @@
 /* eslint-disable func-names, no-unused-expressions, global-require */
-const { expect } = require('chai');
-const mock = require('mock-require');
-const fs = require('fs');
-const path = require('path');
-
 const { generateClass, loadResourceTemplates } = require('../src/generate');
 
 describe('Generated Resources', function () {

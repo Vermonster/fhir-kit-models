@@ -1,7 +1,4 @@
 /* eslint-disable func-names, no-unused-expressions, global-require */
-const { expect } = require('chai');
-const fs = require('fs');
-
 const { copyFilesSync, initializeDirectory, generateEntryPont } = require('../src/generate');
 
 describe('Generate', function () {
