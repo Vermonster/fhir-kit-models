@@ -30,9 +30,10 @@ const keys = patient.keys();
 const entries = patient.entries();
 
 // Return a specific property value
-const gender = patient.gender;
-const addressText = patient.address[0].text;
-const mobileContact = patient.telecom.find(contact => contact.use === 'mobile');
+const patientGender = patient.gender;
+const patientLastNames = patient.name.map(name => name.family)
+const patientAddress = patient.address[0];
+const patientHomePhone = patient.telecom.find(contact => contact.use === 'home');
 
 // Iterate over the patient instance
 for (let [attr, value] of patient) {console.log(attr)}
@@ -40,6 +41,14 @@ for (let [attr, value] of patient) {console.log(attr)}
 // Return the FHIR object as a POJO
 for patientObject = patient.toObject();
  ```
+
+To interact with a sample patient run the following:
+
+ ```
+ $ yarn add sandbox
+ ```
+Command `c` will jump to your breakpoint and `repl` to read and evaluate code
+within the current context.
 
 ### Complementary Packages
 
@@ -77,14 +86,17 @@ To run both testing and linting:
 yarn lint && yarn test
 ```
 
-To debug tests add `debugger` to a point in the code to set a breakpoint. Then
-run tests with the `debug` option:
+To run tests with the debugging utility add the `debugger` statement to set a
+breakpoint and run tests with the `debug` option:
 ```
 yarn test debug
 ```
 
-Command `c` will jump to your breakpoint. Read more commands available in the
-[node debugger api](https://nodejs.org/api/debugger.html#debugger_stepping).
+Command `c` will jump to your breakpoint and `repl` to read and evaluate code
+within the current context.Read more about the available commands in the
+[node debugger api](https://nodejs.org/api/debugger.html#debugger_stepping)
+and the
+[REPL api](https://nodejs.org/api/repl.html#repl_commands_and_special_keys).
 
 ### Code of Conduct
 

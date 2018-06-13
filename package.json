@@ -8,6 +8,7 @@
   "scripts": {
     "lint": "eslint .",
     "prepublish": "yarn lint && yarn test && yarn build",
+    "sandbox": "yarn build && node inspect example",
     "build": "node -e 'require(\"./src/generate\").createClasses()'",
     "test": "mocha test --reporter spec"
   },

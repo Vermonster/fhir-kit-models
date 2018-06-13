@@ -1,9 +1,11 @@
+/* eslint-disable no-debugger, no-unused-vars */
+
+// enter `c` in the debugging utility to reach the breakpoint
 const fs = require('fs');
-
-const patientJSON = JSON.parse(fs.readFileSync(`${__dirname}/patient.json`, 'utf8'));
-
 const { Patient } = require('../');
 
+const patientJSON = JSON.parse(fs.readFileSync(`${__dirname}/patient.json`, 'utf8'));
 const patient = new Patient(patientJSON);
 
-console.log(patient.toObject); // eslint-disable-line no-console
+// enter 'repl' to interact with patient object
+debugger;
