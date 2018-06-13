@@ -10,7 +10,7 @@ future features are planned.
 ## Usage
 
 Assuming you are using [`yarn`](https://yarnpkg.com/lang/en/) as your package
-manager. First, install with:
+manager, install with:
 
 ```
 $ yarn add fhir-kit-models
@@ -42,13 +42,6 @@ for (let [attr, value] of patient) {console.log(attr)}
 for patientObject = patient.toObject();
  ```
 
-To interact with a sample patient run the following:
-
- ```
- $ yarn add sandbox
- ```
-Command `c` will jump to your breakpoint and `repl` to read and evaluate code
-within the current context.
 
 ### Complementary Packages
 
@@ -63,6 +56,15 @@ GitHub issues to track bug fixes and improvements. We encourage the community
 to join discussion, seek clarifications and create pull requests for new
 features. Before you start, make sure you take a look at our project
 [roadmap](ROADMAP.md) and our [Code of Conduct](CODE_OF_CONDUCT.md).
+
+### Demo
+To interact with a sample patient run the following:
+
+ ```
+ $ yarn install && yarn demo
+ ```
+Command `c` will jump to your breakpoint and `repl` to read and evaluate code
+within the current context.
 
 ### Development
 #### Install
@@ -93,7 +95,7 @@ yarn test debug
 ```
 
 Command `c` will jump to your breakpoint and `repl` to read and evaluate code
-within the current context.Read more about the available commands in the
+within the current context. Read more about the available commands in the
 [node debugger api](https://nodejs.org/api/debugger.html#debugger_stepping)
 and the
 [REPL api](https://nodejs.org/api/repl.html#repl_commands_and_special_keys).
