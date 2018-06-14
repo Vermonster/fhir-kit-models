@@ -63,8 +63,8 @@ To interact with a sample patient run the following:
  ```
  $ yarn install && yarn demo
  ```
-Command `c` will jump to your breakpoint and `repl` to read and evaluate code
-within the current context.
+Command `c` will jump to your breakpoint and `repl` will read and evaluate code
+within the current execution context.
 
 ### Development
 #### Install
@@ -94,9 +94,9 @@ breakpoint and run tests with the `debug` option:
 yarn test debug
 ```
 
-Command `c` will jump to your breakpoint and `repl` to read and evaluate code
-within the current context. Read more about the available commands in the
-[node debugger api](https://nodejs.org/api/debugger.html#debugger_stepping)
+Command `c` will jump to your breakpoint and `repl` will read and evaluate code
+within the current execution context. Read more about the available commands in
+the [node debugger api](https://nodejs.org/api/debugger.html#debugger_stepping)
 and the
 [REPL api](https://nodejs.org/api/repl.html#repl_commands_and_special_keys).
 
