@@ -1,10 +1,6 @@
 /* eslint-disable func-names, no-unused-expressions, global-require, no-plusplus */
-const { expect } = require('chai');
-const mock = require('mock-require');
-const fs = require('fs');
-const path = require('path');
+const { generateClass, loadResourceTemplates } = require('../src/generate');
 
-const { generateClass, loadResourceTemplates, copyFilesSync } = require('../src/generate');
 const ArrayProxy = require('../src/ArrayProxy');
 
 describe('ArrayProxy', function () {
@@ -17,8 +13,9 @@ describe('ArrayProxy', function () {
 
     template = loadResourceTemplates();
     const schema = JSON.parse(fs.readFileSync(path.normalize(`${__dirname}/fixtures/base-resource.json`)));
+
     generateClass(schema, 'tmp', template);
-    copyFilesSync(['helpers.js', 'ArrayProxy.js'], 'tmp');
+
     BaseResource = require('../tmp/BaseResource');
     mock('resources/BaseResource', require('../tmp/BaseResource'));
   });

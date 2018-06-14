@@ -1,7 +1,4 @@
 /* eslint-disable func-names, no-unused-expressions */
-const { expect } = require('chai');
-const mock = require('mock-require');
-
 const { isPresent, loadResource } = require('../src/helpers');
 
 describe('isPresent', function () {
