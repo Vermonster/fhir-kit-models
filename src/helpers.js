@@ -10,7 +10,8 @@ const checkResourceType = resourceType => {
 
 const loadResource = resourceType => {
   checkResourceType(resourceType);
-  const resourcePath = `resources/${resourceType}`;
+  const resourcePath = `./${resourceType}`;
+  console.log(`loading ${resourcePath}`);
   try {
     return require(resourcePath); // eslint-disable-line import/no-dynamic-require
   } catch (_error) {

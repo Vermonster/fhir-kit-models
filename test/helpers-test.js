@@ -61,7 +61,7 @@ describe('loadResource', function () {
   const testResource = { abc: '123' };
 
   before(function () {
-    mock('resources/TestResource', testResource);
+    mock('../src/TestResource', testResource);
   });
 
   after(function () {

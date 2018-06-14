@@ -6,9 +6,6 @@ describe('Generated Resources', function () {
   let template;
 
   before(function () {
-    mock('../ArrayProxy', require('../src/ArrayProxy'));
-    mock('../helpers', require('../src/helpers'));
-
     template = loadResourceTemplates();
     const schema = JSON.parse(fs.readFileSync(path.normalize(`${__dirname}/fixtures/base-resource.json`)));
     generateClass(schema, 'tmp', template);
