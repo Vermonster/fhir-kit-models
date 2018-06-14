@@ -108,4 +108,4 @@ participants to adhere to a [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## License
 
-This project has been published under the [MIT LICENSE.md](LICENSE.md).
+This project has been published under the [MIT LICENSE](LICENSE).
