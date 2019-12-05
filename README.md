@@ -4,8 +4,9 @@
 [![GitHub license](https://img.shields.io/github/license/Vermonster/fhir-kit-models.svg)](https://github.com/Vermonster/fhir-kit-models/blob/master/LICENSE)
 
 FHIR Models is an open source library of [FHIR](http://www.hl7.org/fhir/)
-Resources for Node.js. Currently, the library supports STU3 sequence version
-3.0.1.
+Resources for Node.js. Currently, the library supports r4 version 4.0.1.
+
+NOTE: For R3, please install version FHIR Kit Models version: 0.1.2
 
 Please view our [roadmap](ROADMAP.md) to get a better understanding of what
 future features are planned.

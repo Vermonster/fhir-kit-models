@@ -37,13 +37,16 @@ const propertyParams = ([name, properties]) => {
 };
 
 const renderClass = (params, outputPath, template) => {
-  const output = `${template(params)}\n`;
+  const output = `${template(params)}`;
   fs.writeFileSync(normalize(`${outputPath}/${params.className}.js`), output);
 };
 
 const classParams = definition => {
-  const rawParams = definition.allOf[definition.allOf.length - 1];
-  return Object.entries(rawParams.properties).map(propertyParams);
+  const rawParams = definition.allOf && definition.allOf[definition.allOf.length - 1];
+  if (rawParams) {
+    return Object.entries(rawParams.properties).map(propertyParams);
+  }
+  console.error(`error with ${JSON.stringify(definition, null, 2)}`); // eslint-disable-line no-console
 };
 
 const generateClass = (schema, outputPath, template) => {
@@ -51,30 +54,40 @@ const generateClass = (schema, outputPath, template) => {
     const camelCaseClassName = className.replace('_', '');
     console.log(`Generating: ${camelCaseClassName}.js`); // eslint-disable-line no-console
     let superClass;
-    const definitionReference = definition.allOf[0].$ref;
+    const definitionReference = definition.allOf
+      && definition.allOf.length > 0
+      && definition.allOf[0]
+      && definition.allOf[0].$ref;
+
     if (definitionReference) {
       superClass = definitionReference.slice(definitionReference.lastIndexOf('/') + 1);
     }
     const params = classParams(definition);
 
-    const usesArrayProxy = params.some(properties => properties.array && !properties.primitive);
-    const usesIsPresent = !superClass || params.some(param => !param.primitive);
-    const usesLoadResource = params.some(param => param.anyResource && !param.array);
-    const isResource = params.some(param => param.name === 'resourceType');
+    if (!params) { return undefined; }
 
-    renderClass(
-      {
-        className: camelCaseClassName,
-        superClass: superClass && superClass.replace('_', ''),
-        usesArrayProxy,
-        usesIsPresent,
-        usesLoadResource,
-        isResource,
-        params,
-      },
-      outputPath,
-      template,
-    );
+    try {
+      const usesArrayProxy = params.some(properties => properties.array && !properties.primitive);
+      const usesIsPresent = !superClass || params.some(param => !param.primitive);
+      const usesLoadResource = params.some(param => param.anyResource && !param.array);
+      const isResource = params.some(param => param.name === 'resourceType');
+
+      renderClass(
+        {
+          className: camelCaseClassName,
+          superClass: superClass && superClass.replace('_', ''),
+          usesArrayProxy,
+          usesIsPresent,
+          usesLoadResource,
+          isResource,
+          params,
+        },
+        outputPath,
+        template,
+      );
+    } catch (e) {
+      console.error(e); // eslint-disable-line no-console
+    }
   }
 };
 
@@ -100,7 +113,8 @@ const copyFilesSync = (staticFiles, destinationPath) => {
 
 const generateClasses = (schemaFileNames, outputPath, template) => {
   for (const schemaFileName of schemaFileNames) {
-    if (schemaFileName !== 'ResourceList.schema.json' && schemaFileName !== 'fhir.schema.json') {
+    // if (schemaFileName !== 'ResourceList.schema.json' && schemaFileName !== 'fhir.schema.json') {
+    if (schemaFileName === 'fhir.schema.json') {
       const schema = JSON.parse(fs.readFileSync(normalize(`${__dirname}/../resource-schemas/${schemaFileName}`), 'utf8'));
       generateClass(schema, outputPath, template);
     }
@@ -119,6 +133,7 @@ const createClasses = () => {
   const schemaFileNames = fs.readdirSync(normalize(`${__dirname}/../resource-schemas`));
 
   initializeDirectory(destinationPath);
+  // expandSchemas(schemaFileNames);
   generateClasses(schemaFileNames, destinationPath, resourceTemplate);
   generateEntryPont(destinationPath);
   copyFilesSync(['helpers.js', 'ArrayProxy.js'], destinationPath);

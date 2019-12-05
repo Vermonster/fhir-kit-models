@@ -16,7 +16,7 @@
       {{#if anyResource}}
       this[_values].{{name}} = ArrayProxy();
       {{else}}
-      const klass = require('./{{type}}');
+      const klass = require('./{{type}}'); // eslint-disable-line import/no-self-import
       this[_values].{{name}} = ArrayProxy(klass);
       {{/if}}
     }
@@ -27,7 +27,7 @@
       {{#if anyResource}}
     this[_values].{{name}} = ArrayProxy();
       {{else}}
-    const klass = require('./{{type}}');
+    const klass = require('./{{type}}'); // eslint-disable-line import/no-self-import
     this[_values].{{name}} = ArrayProxy({{#unless anyResource}}klass{{/unless}});
       {{/if}}
     value.forEach(entry => this[_values].{{name}}.push(entry));
@@ -38,7 +38,7 @@
   get {{name}}() {
       {{#unless anyResource}}
     if (!isPresent(this[_values].{{name}})) {
-      const klass = require('./{{type}}');
+      const klass = require('./{{type}}'); // eslint-disable-line import/no-self-import
       this[_values].{{name}} = new klass();
     }
       {{/unless}}
@@ -49,7 +49,7 @@
       {{#if anyResource}}
     const klass = loadResource(value.resourceType);
       {{else}}
-    const klass = require('./{{type}}');
+    const klass = require('./{{type}}'); // eslint-disable-line import/no-self-import
       {{/if}}
     return this[_values].{{name}} = new klass(value);
   }

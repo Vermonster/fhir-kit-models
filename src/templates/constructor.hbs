@@ -7,8 +7,8 @@
     this.resourceType = '{{className}}';
 {{/if}}
 {{#if superClass}}
-    if (values instanceof {{className}}{{#if superClass}} ||
-      values instanceof {{superClass}}{{/if}}) {
+    // eslint-disable-next-line max-len
+    if (values instanceof {{className}}{{#if superClass}} || values instanceof {{superClass}}{{/if}}) {
 {{else}}
     if (values instanceof {{className}}) {
 {{/if}}
