@@ -29,7 +29,7 @@ const propertyParams = ([name, properties]) => {
   const anyResource = type === 'ResourceList';
   return {
     name,
-    type: type.replace('_', ''),
+    type: type && type.replace('_', ''),
     array,
     primitive,
     anyResource,
@@ -42,9 +42,9 @@ const renderClass = (params, outputPath, template) => {
 };
 
 const classParams = definition => {
-  const rawParams = definition.allOf && definition.allOf[definition.allOf.length - 1];
-  if (rawParams) {
-    return Object.entries(rawParams.properties).map(propertyParams);
+  const { properties } = definition;
+  if (properties) {
+    return Object.entries(properties).map(propertyParams);
   }
   console.error(`error with ${JSON.stringify(definition, null, 2)}`); // eslint-disable-line no-console
 };
@@ -63,8 +63,6 @@ const generateClass = (schema, outputPath, template) => {
       superClass = definitionReference.slice(definitionReference.lastIndexOf('/') + 1);
     }
     const params = classParams(definition);
-
-    if (!params) { return undefined; }
 
     try {
       const usesArrayProxy = params.some(properties => properties.array && !properties.primitive);
