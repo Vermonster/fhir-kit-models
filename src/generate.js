@@ -46,7 +46,7 @@ const classParams = definition => {
   if (properties) {
     return Object.entries(properties).map(propertyParams);
   }
-  console.error(`error with ${JSON.stringify(definition, null, 2)}`); // eslint-disable-line no-console
+  console.warn(`warning: ${JSON.stringify(definition, null, 2)}`); // eslint-disable-line no-console
 };
 
 const generateClass = (schema, outputPath, template) => {
@@ -65,10 +65,15 @@ const generateClass = (schema, outputPath, template) => {
     const params = classParams(definition);
 
     try {
-      const usesArrayProxy = params.some(properties => properties.array && !properties.primitive);
-      const usesIsPresent = !superClass || params.some(param => !param.primitive);
-      const usesLoadResource = params.some(param => param.anyResource && !param.array);
-      const isResource = params.some(param => param.name === 'resourceType');
+      const usesArrayProxy = params
+        && params.some(properties => properties.array && !properties.primitive);
+
+      const usesIsPresent = !superClass || (params && params.some(param => !param.primitive));
+
+      const usesLoadResource = params
+        && params.some(param => param.anyResource && !param.array);
+
+      const isResource = params && params.some(param => param.name === 'resourceType');
 
       renderClass(
         {
