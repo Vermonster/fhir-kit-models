@@ -1,23 +1,59 @@
 {
-  "$ref": "#/definitions/DerivedResource",
   "definitions": {
-    "DerivedResource": {
-      "allOf": [
-        {
-          "$ref": "base-resource.schema.json#/definitions/BaseResource"
+    "BaseResource": {
+      "description": "Base definition for all elements in a resource.",
+      "properties": {
+        "resourceType": {
+          "type": "string"
         },
-        {
-          "description": "Base definition for all elements in a resource.",
-          "properties": {
-            "resourceType": {
-              "type": "string"
-            },
-            "own": {
-              "type": "string"
-            }
+        "primitive": {
+          "type": "string"
+        },
+        "primitiveArray": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "complex": {
+          "$ref": "#/definitions/BaseResource"
+        },
+        "complexArray": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BaseResource"
           }
         }
-      ]
+      }
+    },
+    "DerivedResource": {
+      "description": "Base definition for all elements in a resource.",
+      "properties": {
+        "resourceType": {
+          "type": "string"
+        },
+        "own": {
+          "type": "string"
+        },
+        "primitive": {
+          "type": "string"
+        },
+        "primitiveArray": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "complex": {
+          "$ref": "#/definitions/BaseResource"
+        },
+        "complexArray": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BaseResource"
+          }
+        }
+      }
     }
   }
 }
