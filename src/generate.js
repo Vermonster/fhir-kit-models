@@ -6,6 +6,19 @@ const Handlebars = require('handlebars'); // eslint-disable-line import/no-extra
 
 const baseTemplatepath = normalize(`${__dirname}/templates`);
 
+const schemas = [];
+
+const isPrimative = ref => {
+  const nameArray = /[^/]*$/.exec(ref);
+  const { definitions = {} } = schemas[0] || {};
+  const defintion = definitions[nameArray[0]];
+  if (defintion) {
+    const { properties } = defintion;
+    return !properties;
+  }
+  return true;
+};
+
 const loadResourceTemplates = () => {
   const baseTemplateFilename = 'element-template.hbs';
   const templateFileNames = fs.readdirSync(baseTemplatepath);
@@ -23,10 +36,12 @@ const loadResourceTemplates = () => {
 const propertyParams = ([name, properties]) => {
   const array = properties.type === 'array';
   const objectProperties = array ? properties.items : properties;
-  const type = objectProperties.$ref ? objectProperties.$ref.slice(objectProperties.$ref.lastIndexOf('/') + 1) : objectProperties.type;
+  const type = objectProperties.$ref
+    ? objectProperties.$ref.slice(objectProperties.$ref.lastIndexOf('/') + 1)
+    : objectProperties.type;
 
-  const primitive = !objectProperties.$ref;
   const anyResource = type === 'ResourceList';
+  const primitive = isPrimative(objectProperties.$ref) && !anyResource;
   return {
     name,
     type: type && type.replace('_', ''),
@@ -50,6 +65,7 @@ const classParams = definition => {
 };
 
 const generateClass = (schema, outputPath, template) => {
+  schemas.push(schema);
   for (const [className, definition] of Object.entries(schema.definitions)) {
     const camelCaseClassName = className.replace('_', '');
     console.log(`Generating: ${camelCaseClassName}.js`); // eslint-disable-line no-console
@@ -62,22 +78,17 @@ const generateClass = (schema, outputPath, template) => {
     if (definitionReference) {
       superClass = definitionReference.slice(definitionReference.lastIndexOf('/') + 1);
     }
-    const { type } = definition;
-
     const params = classParams(definition);
 
     try {
-      const usesArrayProxy = params
-        && params.some(properties => properties.array && !properties.primitive);
+      const usesArrayProxy = params.some(properties => properties.array && !properties.primitive);
 
-      const usesIsPresent = (!type && !superClass)
-        || (params && params.some(param => !param.primitive));
+      const usesIsPresent = !superClass
+        || params.some(param => !param.primitive);
 
-      const usesLoadResource = params
-        && params.some(param => param.anyResource && !param.array);
+      const usesLoadResource = params.some(param => param.anyResource && !param.array);
 
-      const isResource = params
-        && params.some(param => param.name === 'resourceType');
+      const isResource = params.some(param => param.name === 'resourceType');
 
       renderClass(
         {
@@ -87,7 +98,6 @@ const generateClass = (schema, outputPath, template) => {
           usesIsPresent,
           usesLoadResource,
           isResource,
-          type,
           params,
         },
         outputPath,
