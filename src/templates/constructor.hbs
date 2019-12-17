@@ -1,3 +1,9 @@
+{{#if type}}
+  constructor(value) {
+    this[_values] = value;
+  }
+
+{{else}}
   constructor(values = {}) {
 {{#if superClass}}
     super();
@@ -19,3 +25,4 @@
       Object.entries(values).forEach(([key, value]) => this[key] = value);
     }
   }
+{{/if}}

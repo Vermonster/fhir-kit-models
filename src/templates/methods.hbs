@@ -1,4 +1,9 @@
 {{#unless superClass}}
+  {{#if type}}
+  toObject() {
+    return this[_values];
+  }
+  {{else}}
 
   * [Symbol.iterator]() {
     const presentEntries = Object.entries(this[_values])
@@ -29,4 +34,5 @@
   entries() {
     return Object.entries(this[_values]);
   }
+  {{/if}}
 {{/unless}}

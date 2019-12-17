@@ -62,18 +62,22 @@ const generateClass = (schema, outputPath, template) => {
     if (definitionReference) {
       superClass = definitionReference.slice(definitionReference.lastIndexOf('/') + 1);
     }
+    const { type } = definition;
+
     const params = classParams(definition);
 
     try {
       const usesArrayProxy = params
         && params.some(properties => properties.array && !properties.primitive);
 
-      const usesIsPresent = !superClass || (params && params.some(param => !param.primitive));
+      const usesIsPresent = (!type && !superClass)
+        || (params && params.some(param => !param.primitive));
 
       const usesLoadResource = params
         && params.some(param => param.anyResource && !param.array);
 
-      const isResource = params && params.some(param => param.name === 'resourceType');
+      const isResource = params
+        && params.some(param => param.name === 'resourceType');
 
       renderClass(
         {
@@ -83,6 +87,7 @@ const generateClass = (schema, outputPath, template) => {
           usesIsPresent,
           usesLoadResource,
           isResource,
+          type,
           params,
         },
         outputPath,
